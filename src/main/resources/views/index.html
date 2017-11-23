@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+    矿机平台 - MCC
+</title>
+    <link href="css/main.css?guid=fc4728b06a8c477180bb263c010ce276" rel="stylesheet" />
+    <script src="scripts/jquery/jquery-1.10.2.min.js"></script>
+    <script src="js/main.js?guid=6652ccb6ac784acaaa67ac92e3bc68f7"></script>
+    <script type="text/javascript">
+        $(function () {
+            resize();
+            $(window).resize(function () {
+                resize();
+            })
+
+
+
+
+
+
+
+
+        })
+
+        function resize() {
+            var height = $(document).height();// - $(".header").height();
+            //$(".right").height(height);
+            $(".left").css("min-height", height);
+            //$(".right .iframe").css("min-height",height);
+            $(".right").css("min-height", height);
+        }
+
+
+
+    </script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $(".hang3 .title a").click(function () {
+                $(this).addClass("selected");
+                $(".hang3 .title a").not(this).removeClass("selected");
+                var index = $(this).index();
+                $(".hang3 .content .box").hide();
+                $(".hang3 .content .box").eq(index).show();
+
+            })
+
+            var leftday = parseInt($(".leftday").text());
+            //alert(leftday);
+            var i = 365;
+            var IntervalVal=setInterval(function () {
+                i = i - 1;
+                $(".leftday").text(i);
+                if (i <= leftday) {
+                    clearInterval(IntervalVal);
+                }
+            },50)
+        })
+    </script>
+    <style type="text/css">
+        body.frame{ min-width:1400px;}
+    </style>
+</head>
+<body class="frame">
+<form name="aspnetForm" method="post" action="usercenter.aspx" id="aspnetForm" enctype="multipart/form-data">
+    <div>
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTIwNTI2ODAzNDUPZBYCZg9kFgICAw8WAh4HZW5jdHlwZQUTbXVsdGlwYXJ0L2Zvcm0tZGF0YRYCAgIPZBYCZg8WAh4LXyFJdGVtQ291bnQCBRYKZg9kFgJmDxUDAzExNRVNQ0Pnp5/nlKjnpKbmqZ/pgJrnn6UKMjAxNy0xMC0yMWQCAQ9kFgJmDxUDAzExNA9NQ0Poqr/lg7npgJrnn6UKMjAxNy0xMC0xOWQCAg9kFgJmDxUDAzExMwlNQ0PpgJrnn6UKMjAxNy0xMC0wM2QCAw9kFgJmDxUDAzExMhVNQ0Poj7Llvovos5PkuqTmtYHmnIMKMjAxNy0wOS0yM2QCBA9kFgJmDxUDAzExMQ9NQ0PkuK3lm73npL7ljLoKMjAxNy0wOS0xNWRk45SGKwUp+6FqEa1rBVy2KT3Zmce+KhOBaJd8CxJPxTA=" />
+    </div>
+
+    <div>
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="6C39F672" />
+        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAJLEb5jtFHAXYmr9d7x9/W7qxNPHKo4ytIuS0dM10XyNrEXSEGuDuL4PeYZBSuJLpVu032iEqpDHGFCfSufYTGx" />
+    </div>
+
+
+    <div class="left">
+
+        <div class="logo">
+            <img src="images/logo.png" />
+        </div>
+        <div class="userinfo">
+            <div class="ava">
+                <img src="images/group_2.png" id="avatar" class="avatar" />
+                <input type="file" name="ctl00$uploadAvatar" id="ctl00_uploadAvatar" style="display:none;" />
+                <input type="submit" name="ctl00$btnAvatar" value="更换头像" id="ctl00_btnAvatar" style="display:none;" />
+            </div>
+            <div class="nickname">
+                饶桂连520
+            </div>
+            <div class="level">
+                矿机状态：
+                已激活
+
+
+
+            </div>
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li class="icon_nav_1">
+                    <a href="member.aspx">矿机管理</a>
+                </li>
+
+                <li class="icon_nav_3">
+                    <a href="trading.aspx">财务中心</a>
+                </li>
+                <li class="icon_nav_4">
+                    <a href="userinfo.aspx?action=edit">我的资料</a>
+                </li>
+                <li class="icon_nav_5">
+                    <a href="download.aspx">电子钱包</a>
+                </li>
+                <li class="icon_nav_6">
+                    <a href="news.aspx">矿协通知</a>
+                </li>
+                <li class="icon_nav_6">
+                    <a href="gif.aspx">算力中心</a>
+                </li>
+
+            </ul>
+            <div style="text-align:center; margin:10px; color:white;">
+                客服邮箱：<a href="mailto:info@mcccloud.com">info@mcccloud.com</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="right rightbg">
+        <div class="header">
+
+            <div class="backhome">
+                <a href="/usercenter.aspx">返回首页</a>
+            </div>
+            <div class="exit">
+                <a href="/login.aspx?action=exit">安全退出</a>
+            </div>
+            <div class="guid">
+                UID：<span>9541b5ec426643e5a4db20828f1027ed</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="iframe">
+
+            <div class="usercenter">
+                <div class="money">
+                    <div class="money1">
+                        <div class="m1">4.897000</div>
+                        <div class="m2">账户余额（币）</div>
+                    </div>
+                    <div class="money2">
+                        <div class="m1">0.000000</div>
+                        <div class="m2">动态收益（币）</div>
+                    </div>
+                    <div class="money3">
+                        <div class="m1">0.000000</div>
+                        <div class="m2">复消账户（币）</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="hang2">
+                    <div class="i_caiwu">
+                        <div class="title">
+                            团队业绩
+                        </div>
+
+                        <div class="box opacity_bg">
+                            <ul style="margin:0px; padding:0px;margin-left:15px;">
+                                <li>
+                                    <span class="name">矿机级别</span>
+                                    <span class="value">A0</span>
+                                </li>
+                                <li>
+                                    <span class="name">团队矿机</span>
+                                    <span class="value">0</span>
+                                </li>
+                                <li>
+                                    <span class="name">总业绩量</span>
+                                    <span class="value">0</span>
+                                </li>
+                                <li>
+                                    <span class="name">新增矿机</span>
+                                    <span class="value">0</span>
+                                </li>
+                                <li>
+                                    <span class="name">新增业绩</span>
+                                    <span class="value">0</span>
+                                </li>
+                                <li>
+                                    <span class="name">Ⅰ级算力</span>
+                                    <span class="value">0.829261-2.427542</span>
+                                </li>
+                                <li>
+                                    <span class="name">Ⅱ级算力</span>
+                                    <span class="value">3.531379-8.5688721</span>
+                                </li>
+                                <li>
+                                    <span class="name">Ⅲ级算力</span>
+                                    <span class="value">33.756752-93.745816</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="i_news">
+                        <div class="title">
+                            矿协通知
+                        </div>
+                        <div class="box opacity_bg">
+
+                            <p>
+                                <a href="news_show.aspx?id=115">MCC租用礦機通知</a>
+                                <span>
+                                    2017-10-21
+                                    
+                                </span>
+                            </p>
+
+                            <p>
+                                <a href="news_show.aspx?id=114">MCC調價通知</a>
+                                <span>
+                                    2017-10-19
+                                    
+                                </span>
+                            </p>
+
+                            <p>
+                                <a href="news_show.aspx?id=113">MCC通知</a>
+                                <span>
+                                    2017-10-03
+                                    
+                                </span>
+                            </p>
+
+                            <p>
+                                <a href="news_show.aspx?id=112">MCC菲律賓交流會</a>
+                                <span>
+                                    2017-09-23
+                                    
+                                </span>
+                            </p>
+
+                            <p>
+                                <a href="news_show.aspx?id=111">MCC中国社区</a>
+                                <span>
+                                    2017-09-15
+                                    
+                                </span>
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                </div>
+
+                <div class="hang3">
+                    <div class="title">
+                        信息
+                    </div>
+                    <div class="content">
+                        <div class="img">
+                            <img src="images/group_2.png" />
+                        </div>
+                        <div class="img">
+                            <img src="images/group_3.png" />
+                        </div>
+                        <div class="img">
+                            <img src="images/group_4.png" />
+                        </div>
+                        <div class="img day">
+                            <img src="images/day.png" />
+                            <span class="leftday">353</span>
+                        </div>
+                        <div class="suanli">
+                            <img src="images/suanli.png" /><br />
+                            挖矿算力
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="content mcc">
+                        <div class="img">
+                            <img src="images/mcc1.png"/>
+                        </div>
+                        <div class="img">
+                            <img src="images/mcc2.png"/>
+                        </div>
+                        <div class="img">
+                            <img src="images/mcc3.png"/>
+                        </div>
+                        <div class="img">
+                            <img src="images/mcc4.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <div class="clear">
+    </div>
+</form>
+</body>
+</html>

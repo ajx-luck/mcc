@@ -1,0 +1,182 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+    矿机平台 - MCC
+</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <script th:src="@{/js/main.js}"></script>
+    <script type="text/javascript">
+        $(function () {
+            resize();
+            $(window).resize(function () {
+                resize();
+            })
+
+
+
+
+
+
+
+
+        })
+
+        function resize() {
+            var height = $(document).height();// - $(".header").height();
+            //$(".right").height(height);
+            $(".left").css("min-height", height);
+            //$(".right .iframe").css("min-height",height);
+            $(".right").css("min-height", height);
+        }
+
+
+
+    </script>
+
+
+    <style type="text/css">
+        .frame .left .nav ul li.icon_nav_5 {
+            background-color: #FF6600;
+        }
+    </style>
+
+
+
+    <link th:href="@{/css/pagination.css}" rel="stylesheet" />
+</head>
+<body class="frame">
+<form name="aspnetForm" method="post" action="news.aspx" id="aspnetForm" enctype="multipart/form-data">
+    <div>
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTI5OTc0NTk3Mw9kFgJmD2QWAgIDDxYCHgdlbmN0eXBlBRNtdWx0aXBhcnQvZm9ybS1kYXRhFgICAg9kFgQCAQ8WAh4LXyFJdGVtQ291bnQCBRYKZg9kFgJmDxUDAzExNRVNQ0Pnp5/nlKjnpKbmqZ/pgJrnn6UKMjAxNy8xMC8yMWQCAQ9kFgJmDxUDAzExNA9NQ0Poqr/lg7npgJrnn6UKMjAxNy8xMC8xOWQCAg9kFgJmDxUDAzExMwlNQ0PpgJrnn6UJMjAxNy8xMC8zZAIDD2QWAmYPFQMDMTEyFU1DQ+iPsuW+i+izk+S6pOa1geacgwkyMDE3LzkvMjNkAgQPZBYCZg8VAwMxMTEPTUND5Lit5Zu956S+5Yy6CTIwMTcvOS8xNWQCAw8WAh4JaW5uZXJodG1sZWRkcpp9+hBGrrDFUMu/sVbLIRK8P2ROrilLN/3+UR8J2yA=" />
+    </div>
+
+    <div>
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA8C29DA" />
+        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAI07xDqdlRQY/WHgOOjjRdRqxNPHKo4ytIuS0dM10XyNtjAcGO4TwdRa8NKsoEL6KKwGs4udE0GKY7CTtejGHjU" />
+    </div>
+
+
+    <div class="left" th:replace="layout :: left">
+
+        <div class="logo">
+            <img th:src="@{/images/logo.png}" />
+        </div>
+        <div class="userinfo">
+            <div class="ava">
+                <img th:src="@{/images/group_2.png}" id="avatar" class="avatar" />
+                <input type="file" name="ctl00$uploadAvatar" id="ctl00_uploadAvatar" style="display:none;" />
+                <input type="submit" name="ctl00$btnAvatar" value="更换头像" id="ctl00_btnAvatar" style="display:none;" />
+            </div>
+            <div class="nickname">
+                饶桂连520
+            </div>
+            <div class="level">
+                矿机状态：
+                已激活
+
+
+
+            </div>
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li class="icon_nav_1">
+                    <a href="member.aspx">矿机管理</a>
+                </li>
+
+                <li class="icon_nav_3">
+                    <a href="trading.aspx">财务中心</a>
+                </li>
+                <li class="icon_nav_4">
+                    <a href="userinfo.aspx?action=edit">我的资料</a>
+                </li>
+                <li class="icon_nav_5">
+                    <a href="download.aspx">电子钱包</a>
+                </li>
+                <li class="icon_nav_6">
+                    <a href="news.aspx">矿协通知</a>
+                </li>
+                <li class="icon_nav_7">
+                    <a href="gif.aspx">算力中心</a>
+                </li>
+
+            </ul>
+            <div style="text-align:center; margin:10px; color:white;">
+                客服邮箱：<a href="mailto:info@mcccloud.com">info@mcccloud.com</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="right rightbg">
+        <div class="header" th:replace="layout :: header">
+
+            <div class="backhome">
+                <a href="/usercenter.aspx">返回首页</a>
+            </div>
+            <div class="exit">
+                <a href="/login.aspx?action=exit">安全退出</a>
+            </div>
+            <div class="guid">
+                UID：<span>9541b5ec426643e5a4db20828f1027ed</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="iframe">
+
+            <div class="bigtitle">
+                <span>矿协通知</span>
+            </div>
+            <div class="news opacity_bg">
+                <ul>
+
+                    <li>
+                        <a href="news_show.aspx?id=115">MCC租用礦機通知</a>
+                        <span>2017/10/21</span>
+                    </li>
+
+                    <li>
+                        <a href="news_show.aspx?id=114">MCC調價通知</a>
+                        <span>2017/10/19</span>
+                    </li>
+
+                    <li>
+                        <a href="news_show.aspx?id=113">MCC通知</a>
+                        <span>2017/10/3</span>
+                    </li>
+
+                    <li>
+                        <a href="news_show.aspx?id=112">MCC菲律賓交流會</a>
+                        <span>2017/9/23</span>
+                    </li>
+
+                    <li>
+                        <a href="news_show.aspx?id=111">MCC中国社区</a>
+                        <span>2017/9/15</span>
+                    </li>
+
+                </ul>
+
+
+
+                <div class="clear"></div>
+                <div id="ctl00_ContentPlaceHolder1_pageContent" class="default" style="text-align:center;"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="clear">
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,471 @@
+body { font-size: 14px; color: black; padding: 0px; margin: 0px; font-family: 'Microsoft YaHei',Arial; }
+
+.clear { clear: both; }
+
+a { text-decoration: none; color: black; }
+
+.left { float: left; }
+
+.right { float: right; }
+
+
+
+.right.rightbg { background: url(../images/bg_all.jpg) no-repeat fixed; background-size: cover; }
+
+.opacity_bg { background: url(../images/opacity_bg.png) repeat; }
+/*登录页*/
+.login { background: url(../images/bj_login.jpg) no-repeat #02B2C9; background-size: cover; }
+
+.login .login_opacity { opacity: 0.90; width: 540px; background-color: #015BAA; height: 480px; margin: auto; margin-top: 10%; }
+
+.login .box { width: 450px; margin: auto; position: relative; height: 480px; margin-top: 10%; }
+
+.login .box .logo { text-align: center; }
+
+.login .box .input { text-align: center; height: 80px; }
+
+.login .box .input.hover { background-color: #F2F6F9; }
+
+.login .box .input input { height: 40px; line-height: 40px; width: 440px; margin-top: 17px; font-size: 20px; text-indent: 40px; border: solid 1px #EDEDF0; }
+
+.login .box .input input.un { background: url(../images/icon_un.png) no-repeat 8px center white; }
+
+.login .box .input input.pw { background: url(../images/icon_pw.png) no-repeat 8px center white; }
+
+.login .box .input input.code { background: url(../images/icon_code.png) no-repeat 8px center white; width: 250px; margin-left: 3px; }
+
+.login .box .input.piccode { text-align: left; }
+
+.login .box .input.piccode img { position: absolute; margin-left: 25px; margin-top: 16px; cursor: pointer; }
+
+.login .box .btn { text-align: center; margin-top: 15px; }
+
+.login .box .btn input { width: 440px; background-color: #42D79F; color: white; font-size: 20px; border: none; padding: 15px 0px; cursor: pointer; }
+
+.login .box .getpw { height: 35px; line-height: 35px; text-align: right; margin-right: 15px; }
+
+.login .box .getpw a { color: #42D79F; margin-left: 10px; }
+
+.login .box .getpw .msgError { float: left; margin-left: 50px; color: red; }
+
+
+
+/*忘记密码*/
+.getpw .box .input input { margin-top: 15px; }
+
+.getpw .box .input { height: 75px; }
+
+.getpw .box .input input.tel { background: url(../images/icon_tel.png) no-repeat 8px center white; }
+
+.getpw .box .input input.newpw { background: url(../images/icon_newpw.png) no-repeat 8px center white; }
+
+.getpw .box .input.smscode { text-align: left; }
+
+.getpw .box .input.smscode input[type="button"] { width: 185px; border-left: 0; height: 44px; text-indent: 0px; background-color: #ECECEF; color: #B0B0B0; cursor: pointer; }
+
+
+
+/*注册用户*/
+.register .box .input input { margin-top: 10px; }
+
+.register .box .input { height:60px; }
+
+.register .box .input input.tel { background: url(../images/icon_tel.png) no-repeat 8px center white; }
+.register .box .input select{ height:40px; line-height:40px; width:440px; font-size:18px;}
+.register .box .input select optin{ height:40px; line-height:40px;}
+.register .box .input input.newpw { background: url(../images/icon_newpw.png) no-repeat 8px center white; }
+
+.register .box .input.smscode { text-align: left; }
+
+.register .box .input.smscode input[type="button"] { width: 185px; border-left: 0; height: 44px; text-indent: 0px; background-color: #ECECEF; color: #B0B0B0; cursor: pointer; }
+
+
+
+
+
+
+
+
+/*框架页面*/
+.frame a { color: white; }
+
+.frame .header { height: 80px; /*background-color:#02335B;*/ line-height: 80px; }
+
+.frame .header a { color: #05AEC5; font-weight: bold; }
+
+.frame .header .logo { width: 13%; float: left; text-align: center; height: 80px; border-right: solid 1px #36737b; }
+
+.frame .header .logo img { margin-top: 10px; max-width: 90%; }
+
+.frame .header .backhome { float: left; margin-left: 15px; }
+
+.frame .header .backhome a { padding: 5px 15px; border-radius: 5px; background-color: #FB6D69; color: white; }
+
+.frame .header .exit { float: right; margin-right: 15px; background: url(../images/logout.png) no-repeat center left; }
+
+.frame .header .guid { float: right; color: white; margin-right: 10px; }
+
+.frame .header .exit a { color: white; padding-left: 20px; }
+
+.frame .left { width: 13%; /*border-top:solid 1px #36737b;*/ background: url(../images/left_bg1.png) repeat; }
+
+.frame .right { width: 87%; }
+
+.frame .right .iframe { margin: 15px; /*background-color:#F1F1F1;box-shadow:1px 0px 10px 1px #888888;*/ }
+
+.frame .left .logo { padding-top: 15px; }
+
+.frame .left .logo img { width: 100%; }
+
+.frame .left .userinfo { text-align: center; margin-top: 25px; }
+
+.frame .left .userinfo .ava { }
+
+.frame .left .userinfo .ava img { width: 120px; height: 120px; }
+
+.frame .left .userinfo .nickname { text-align: center; border: solid 1px #3A445A; border-radius: 10px; height: 35px; line-height: 35px; width: 70%; margin: 10px auto; color: white; }
+
+.frame .left .userinfo .level { height: 40px; line-height: 40px; color: white; }
+
+.frame .left .nav { }
+
+.frame .left .nav ul { margin: 0px; padding: 0px; }
+
+.frame .left .nav ul li { list-style: none; background-color: #0C4A79; border-bottom: solid 1px #666666; }
+
+.frame .left .nav ul li a { display: block; height: 65px; line-height: 65px; text-align: center; }
+
+.frame .left .nav ul li:hover { background-color: #FF6600; }
+
+.frame .left .nav ul li.icon_nav_1 { background: url(../images/icon_nav_1.png) no-repeat 20% center #3A4B64; }
+
+.frame .left .nav ul li.icon_nav_2 { background: url(../images/icon_nav_2.png) no-repeat 20% center #3A4B64; }
+
+.frame .left .nav ul li.icon_nav_3 { background: url(../images/icon_nav_3.png) no-repeat 20% center #3A4B64; }
+
+.frame .left .nav ul li.icon_nav_4 { background: url(../images/icon_nav_4.png) no-repeat 20% center #3A4B64; }
+
+.frame .left .nav ul li.icon_nav_5 { background: url(../images/icon_nav_5.png) no-repeat 20% center #3A4B64; }
+
+.frame .left .nav ul li.icon_nav_6 { background: url(../images/icon_nav_6.png) no-repeat 20% center #3A4B64; }
+
+
+
+
+
+
+
+
+
+
+.frame .right .iframe .bigtitle { height: 40px; line-height: 40px; color: white; }
+
+.frame .right .iframe .bigtitle span { padding: 3px 15px; font-weight: bold; }
+
+
+
+.frame .right .iframe .userinfo { margin: 25px; }
+
+.frame .right .iframe .userinfo dl { clear: both; min-height: 35px; line-height: 35px; font-weight: bold; }
+
+.frame .right .iframe .userinfo dl dt { width: 120px; text-align: right; float: left; color: white; }
+
+.frame .right .iframe .userinfo dl dd { margin-left: 150px; }
+
+.frame .right .iframe .userinfo dl dd input, .frame .right .iframe .userinfo dl dd select { height: 30px; line-height: 30px; width: 330px; text-indent: 10px; border-radius: 5px; border: solid 1px #DADADA; font-size: 14px; font-weight: bold; background-color: transparent; color: white; }
+
+.frame .right .iframe .userinfo dl dd input[disabled], .frame .right .iframe .userinfo dl dd select[disabled] { border: none; }
+
+.frame .right .iframe .userinfo dl dd input[type="submit"] { background-color: #FF812D; border: none; height: 40px; line-height: 40px; font-size: 18px; }
+
+.frame .right .iframe .userinfo dl dd select option { background-color: white; color: black; }
+
+.frame .right .iframe .userinfo dl dd img { max-width: 800px; }
+
+.frame .right .iframe .userinfo dl dd.msgError { color: red; }
+
+
+
+
+.download { border: solid 2px #00CCFF; width: 450px; margin: 60px auto; text-align: center; padding-bottom: 35px; border-radius: 10px; }
+
+.download .title { background-color: #00CCFF; color: white; text-align: center; height: 50px; line-height: 50px; font-size: 18px; font-weight: bold; margin-bottom: 35px; }
+
+
+
+
+.news { color: white; margin: 15px; }
+
+.news ul { list-style: none; padding: 35px; }
+
+.news ul li { border-bottom: dashed 1px #ACC8EA; height: 40px; line-height: 40px; }
+
+.news ul li a { color: white; }
+
+.news ul li span { float: right; }
+
+
+
+
+.newshow { margin: 15px; padding: 25px; color: white; }
+
+.newshow .title { text-align: center; font-size: 16px; font-weight: bold; }
+
+.newshow .add_time { text-align: center; height: 35px; line-height: 35px; }
+
+.newshow .content { }
+
+
+
+
+
+.member { margin: 25px; }
+
+.member .member2 { width: 220px; float: left; }
+.member .member2.member100{}
+.member .member2.member100 a{ background-color:gray; border-radius:10px;}
+.member .member3 { margin-left: 140px; }
+
+
+.member .member2 a { display: block; background-color: #0061B0; color: white; margin-top: 10px; height: 70px; text-align: center; clear: both;border-radius:10px; }
+
+.member .member2 a.selected, .member .member2 a:hover { background-color: #FF6600; }
+
+.member .member2 div.ava { float: left; margin-left: 15px; margin-top: 10px; }
+
+.member .member2 div.ava img { width: 50px; height: 50px; }
+
+.member .member2 div.info { float: left; margin-left: 10px; margin-top: 5px; text-align: left; }
+
+.member .member2 div.info p { padding: 0px; margin: 0px; }
+
+.member .member3 a { padding: 10px 25px; border: solid 1px gray; margin-top: 10px; display: block; color: #0061B0; float: left; margin-right: 10px; }
+
+
+
+
+
+/*amount*/
+.amount { width: 80%; margin: auto; margin-top: 25px; }
+
+.amount table { width: 100%; }
+
+.amount table tr { height: 40px; line-height: 40px; }
+
+.amount table tr th { text-align: center; }
+
+.amount table tr td { text-align: center; }
+
+.amount table tr.even.title { background-color: #FF6600; color: white; }
+
+.amount table tr.odd { background-color: #dadbde; color: #0563B1; }
+
+.amount table tr.even { background-color:#c7c9d0; }
+
+
+
+
+.trading { width: 96%; margin: auto; margin-top: 35px; color: white; }
+
+.trading .tab { background: url(../images/opacity_bg.png) repeat; height: 55px; line-height: 55px; }
+.trading .tab a { display: inline-block; width: 145px; text-align: center; color: black; color: white; font-weight: bold; }
+
+.trading .tab a.selected { background-color: #FB6D69; color: white; }
+
+.trading .box { font-size: 16px; }
+
+.trading .box.t1 { }
+
+.trading .box.t1 dl { clear: both; height: 30px; line-height: 30px; }
+
+.trading .box.t1 dl dt { float: left; width: 140px; text-align: left; }
+
+.trading .box.t1 dl dd { margin-left: 160px; }
+
+.trading .box.t1 dl dd input { height: 30px; line-height: 30px; font-size: 20px; text-indent: 10px; }
+
+.trading .box.t1 dl dd input[type="text"] { width: 180px; }
+.trading .box.t1 dl dd input[type="text"].v_guid{ width:300px;}
+.trading .box.t1 dl dd input[type="password"] { width: 300px; }
+
+.trading .box input[type="text"], .trading .box input[type="password"] { background-color: transparent; border: solid 1px white; color: white; }
+
+
+.trading .box .btn { background-color: #FF6600; border: none; cursor: pointer; color: white; font-size: 20px; }
+
+.trading .box.t1 dl dd input.btn { padding: 10px 55px; height: 50px; text-indent: 0px; }
+
+.trading .box.t2 { }
+
+.trading .box.t2 input { height: 30px; line-height: 30px; font-size: 15px; text-indent: 10px; }
+
+.trading .box.t2 input.btn { padding: 10px 55px; height: 50px; text-indent: 0px; }
+
+.trading .box.t2 .t2code input[type="button"] { background-color: #FF6600; border: none; color: white; height: 34px; cursor: pointer; }
+
+/*用户中心*/
+.usercenter { }
+
+.usercenter .money { height: 100px; padding-top: 30px; width: 96%; margin: auto; }
+
+.usercenter .money .money1, .usercenter .money .money2, .usercenter .money .money3 { height: 150px; color: white; border-radius: 10px; width: 28%; font-size: 1.2em; }
+
+.usercenter .money .m1 { margin-left: 140px; font-size: 1.2em; margin-top: 40px; }
+
+.usercenter .money .m2 { margin-left: 140px; margin-top: 10px; }
+
+
+.usercenter .money .money1 { background: url(../images/money1.png) no-repeat 40px center #F46464; float: left; }
+
+.usercenter .money .money2 { background: url(../images/money2.png) no-repeat 40px center #00CCFF; float: left; margin-left: 8%; }
+
+.usercenter .money .money3 { background: url(../images/money3.png) no-repeat 40px center #33CC99; float: left; margin-left: 8%; }
+
+
+
+.usercenter .hang2 { margin: 30px auto; width: 96%; }
+
+.usercenter .hang2 .i_caiwu { float: left; width:33%; }
+
+.usercenter .hang2 .i_news { float: right; width:64%; }
+
+.usercenter .hang2 .title { float: left; padding: 5px 15px; font-size: 20px; margin-bottom: 20px; color: white; }
+
+.usercenter .hang2 .box { clear: both; padding-top: 20px; height: 254px; }
+
+.usercenter .hang2 .i_caiwu ul { color: white; list-style: none; }
+
+.usercenter .hang2 .i_caiwu ul li { float: left; width: 80%; height: 30px; line-height: 30px; font-size: 18px; }
+
+.usercenter .hang2 .i_caiwu ul li .name { }
+
+.usercenter .hang2 .i_caiwu ul li .value { margin-left: 15px; }
+
+.usercenter .hang2 .i_news .box { color: white; }
+
+.usercenter .hang2 .i_news .box p { height: 40px; line-height: 40px; border-bottom: dashed 1px white; text-indent: 5px; margin: 0px 15px; }
+
+.usercenter .hang2 .i_news .box p a { color: white; }
+
+.usercenter .hang2 .i_news .box p a:hover { color: #0061B0; }
+
+.usercenter .hang2 .i_news .box p span { float: right; margin-right: 5px; }
+
+
+
+
+
+
+
+
+.usercenter .hang3 { width: 96%; margin: 15px auto; padding-bottom: 30px; }
+
+.usercenter .hang3 .title { height: 55px; line-height: 55px; color: white; font-size: 20px; padding: 15px 20px; }
+
+.usercenter .hang3 .title a { display: inline-block; font-size: 20px; padding: 0px 45px; }
+
+.usercenter .hang3 .title a.selected { background-color: #FF6600; color: white; }
+
+.usercenter .hang3 .title span { float: right; margin-right: 10px; color: white; }
+
+.usercenter .hang3 .content { }
+
+.usercenter .hang3 .content .img { float: left; margin-right: 20px; margin-top: 40px; width: 164px; height: 168px; }
+
+.usercenter .hang3 .content .img.day { margin-right: 0px; }
+
+.usercenter .hang3 .content .img.day span { position: relative; top: -115px; left: 34px; font-size: 30px; letter-spacing: 21px; color: #8DB121; }
+
+.usercenter .hang3 .content .suanli { float: right; background: url(../images/opacity_bg.png) repeat; padding: 40px; text-align: center; color: white; }
+
+
+
+
+
+/*会员导航*/
+.member_nav { padding: 20px; margin-left: 5px; margin-top: 20px; }
+.member_nav a { padding: 10px 25px; background-color: #05AEC5; color: white; }
+
+
+
+
+
+
+
+
+
+
+.accountlist { padding: 15px 30px; }
+
+.accountlist a { display: block; background-color: #0061B0; color: white; margin-top: 10px; height: 70px; text-align: center; float: left; padding: 5px 15px; margin-right: 15px; }
+
+.accountlist a.selected, .member .member2 a:hover { background-color: #FF6600; }
+
+.accountlist div.ava { float: left; margin-top: 10px; }
+
+.accountlist div.ava img { width: 50px; height: 50px; }
+
+.accountlist div.info { float: left; margin-left: 10px; margin-top: 5px; text-align: left; }
+
+.accountlist div.info p { padding: 0px; margin: 0px; }
+
+
+
+.accountlist a:hover { background-color: #FF6600; }
+
+.accountlist .btn { background-color: #FF6600; height: 80px; padding: 0px 35px; color: white; border: none; margin-top: 10px; font-size: 20px; cursor: pointer; outline: none; }
+
+
+.addaccount { width: 450px; height: 350px; background-color: white; z-index: 999; position: fixed; display: none; border-radius: 10px; }
+.addaccount .title { text-align: center; margin: 15px; font-size: 25px; margin-top: 45px; }
+
+.addaccount dl { clear: both; min-height: 30px; line-height: 30px; font-size: 18px; }
+
+.addaccount dl dt { width: 120px; text-align: right; position: absolute; }
+
+.addaccount dl dd { margin-left: 130px; float: left; }
+
+.addaccount dl dd input { height: 30px; line-height: 30px; width: 200px; font-size: 18px;; }
+
+.addaccount dl dd input.btn { background-color: #FF6600; color: white; border: none; height: 45px; }
+
+
+.addaccount .tip { font-size: 12px; }
+
+.addaccount .close { position: absolute; margin-top: -22px; right: -15px; cursor: pointer; }
+
+
+
+
+
+
+
+
+
+
+
+.jihuo{ line-height:40px; font-size:18px;}
+.jihuo select{ height:35px; width:150px;}
+
+.jihuo .btn{border: none;height: 40px;line-height: 40px;font-size: 18px;background-color: #FF812D; color:white; padding:0px 10px; border-radius:10px; width:120px;margin-left: 100px; cursor:pointer;}
+
+
+
+
+
+
+
+
+input[type='submit']{ cursor:pointer;}
+
+
+
+
+
+
+
+.content.mcc{ margin-top: -30px;}
+.usercenter .hang3 .content.mcc .img{    margin-top:0px;}
+.content.mcc img{ width: 164px;}
+
+

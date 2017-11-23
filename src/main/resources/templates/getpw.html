@@ -1,0 +1,62 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+    登录 - MCC
+</title><link href="css/main.css" rel="stylesheet" />
+    <script src="scripts/jquery-1.10.2.min.js"></script>
+    <script src="js/main.js"></script>
+    <style type="text/css">
+        .login.getpw .login_opacity{ height:550px;}
+        .login.getpw .box{ height:550px; margin-top:-540px;}
+        .login .box .btn{ margin-top:0px;}
+    </style>
+</head>
+<body class="login getpw">
+<form name="form1" method="post" action="getpw.aspx" id="form1">
+    <div>
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTQyOTU3NjcyOWRkfOr2F0159PLxbK+HV45n+hliWdpJdGbWutt9NqTt53A=" />
+    </div>
+
+    <div>
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="E6BBB81F" />
+        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAcubwYd2/hWlnAf0W8nE1A4Cx26pqtagA6tsM3dNuNS22N6ZYJNGAQHn0c9zMgZU3CFa3z02QmQnYFjj3wKxfjrdjb4xzpKucCqKjegIpvFhmMaVoy8IGVau5Wm+/QxkEg85pbWlDO2hADfoPXD/5tdEvm+k9y21KOUeJmX7U4xQ+VtT9uhyZC0ucOwGPRmzgA=" />
+    </div>
+    <div class="login_opacity">
+
+    </div>
+    <div class="box">
+        <div class="logo">
+            <img src="images/getpwtitle.png" />
+        </div>
+        <div class="input hover">
+            <input name="txtTelphone" type="text" id="txtTelphone" class="tel" placeholder="手机号" />
+        </div>
+        <div class="input">
+            <input name="txtUserName" type="text" id="txtUserName" class="tel" placeholder="用户名" />
+        </div>
+        <div class="input smscode">
+            <input name="txtCode" type="text" id="txtCode" class="code" placeholder="验证码" /><input type="button" value="获取验证码" />
+        </div>
+        <div class="input">
+            <input name="txtPassword" type="password" id="txtPassword" class="newpw" placeholder="新密码" />
+        </div>
+        <div class="input">
+            <input name="txtPassword2" type="password" id="txtPassword2" class="pw" placeholder="确认密码" />
+        </div>
+        <div class="getpw">
+                <span class="msgError">
+                    </span>
+        </div>
+        <div class="btn">
+            <input type="submit" name="btnSubmit" value="确 认" id="btnSubmit" />
+        </div>
+
+    </div>
+</form>
+</body>
+</html>

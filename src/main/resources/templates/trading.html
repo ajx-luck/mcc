@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+    矿机平台 - MCC
+</title>
+    <link href="css/main.css?guid=0b94c9fef8514c2b9634828a736eba18" rel="stylesheet" />
+    <script src="scripts/jquery/jquery-1.10.2.min.js"></script>
+    <script src="js/main.js?guid=92725cafe1224893aa2b19955ce35673"></script>
+    <script type="text/javascript">
+        $(function () {
+            resize();
+            $(window).resize(function () {
+                resize();
+            })
+
+
+
+
+
+
+
+
+        })
+
+        function resize() {
+            var height = $(document).height();// - $(".header").height();
+            //$(".right").height(height);
+            $(".left").css("min-height", height);
+            //$(".right .iframe").css("min-height",height);
+            $(".right").css("min-height", height);
+        }
+
+
+
+    </script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $(".tab a").click(function () {
+                var index = $(this).index();
+                //alert(index);
+                $(".content .box").hide().eq(index).show();
+                $(".tab a").removeClass("selected").eq(index).addClass("selected");
+            })
+
+
+        })
+    </script>
+    <style type="text/css">
+        .frame .left .nav ul li.icon_nav_3 {
+            background-color: #FF6600;
+        }
+        .msg{ color:red;}
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $(".amount table tr:odd").addClass("odd");
+            $(".amount table tr:even").addClass("even");
+        })
+        $(function () {
+            $(".v_guzhi").keyup(function (event) {
+                //if (event.keyCode == 190 || event.keyCode==110) {
+                //    return;
+                //}
+                //var amount = parseFloat($(this).val());
+                //if (isNaN(amount)) {
+                //    amount = 0.00;
+                //}
+                //$(this).val(amount);
+            })
+
+            $(".v_guzhi").change(function () {
+                var amount = parseFloat($(this).val());
+                if (isNaN(amount)) {
+                    amount = 0.00;
+                }
+                $(this).val(amount);
+
+
+                $(".mm").each(function () {
+                    var Feilv = $(this).find("input").val();
+                    $(this).find(".mmv").text(Feilv * amount);
+                })
+
+            })
+
+            $(".NumAmount").change(function () {
+                var amount = parseFloat($(this).val());
+                if (isNaN(amount)) {
+                    amount = 0.00;
+                }
+                $(this).val(amount);
+
+            })
+
+        })
+    </script>
+    <link href="css/pagination.css" rel="stylesheet" />
+</head>
+<body class="frame">
+<form name="aspnetForm" method="post" action="trading.aspx" id="aspnetForm" enctype="multipart/form-data">
+    <div>
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE3ODU3NTIyMjUPZBYCZg9kFgICAw8WAh4HZW5jdHlwZQUTbXVsdGlwYXJ0L2Zvcm0tZGF0YRYCAgIPZBYKZg8WAh4LXyFJdGVtQ291bnQCChYUZg9kFgJmDxUFAAgyLjQyNzAwMAbnrpflipsM6aW25qGC6L+eNTIwEzIwMTctMTEtMjMgMDA6MDc6NDRkAgEPZBYCZg8VBQEtCTEyLjAwMDAwMAzlhoXpg6jovazotKYJY3lmOTQxMDA2EzIwMTctMTEtMjIgMTM6MjQ6NTFkAgIPZBYCZg8VBQAIMi40MjcwMDAG566X5YqbDOmltuahgui/njUyMBMyMDE3LTExLTIyIDAwOjA3OjQzZAIDD2QWAmYPFQUACDIuNDI3MDAwBueul+WKmwzppbbmoYLov541MjATMjAxNy0xMS0yMSAwMDowNzo0NWQCBA9kFgJmDxUFAAgyLjQyNzAwMAbnrpflipsM6aW25qGC6L+eNTIwEzIwMTctMTEtMjAgMDA6MDc6MzVkAgUPZBYCZg8VBQAIMi40MjcwMDAG566X5YqbDOmltuahgui/njUyMBMyMDE3LTExLTE5IDAwOjA3OjM3ZAIGD2QWAmYPFQUACDIuNDI3MDAwBueul+WKmwzppbbmoYLov541MjATMjAxNy0xMS0xOCAwMDowNzozM2QCBw9kFgJmDxUFAS0JMjQuMDAwMDAwDOWGhemDqOi9rOi0pgljeWY5NDEwMDYTMjAxNy0xMS0xNyAxNzoxMTo0OGQCCA9kFgJmDxUFAAgyLjQyNzAwMAbnrpflipsM6aW25qGC6L+eNTIwEzIwMTctMTEtMTcgMDA6MDc6MzJkAgkPZBYCZg8VBQAIMi40MjcwMDAG566X5YqbDOmltuahgui/njUyMBMyMDE3LTExLTE2IDAwOjA3OjMyZAIBDxYCHglpbm5lcmh0bWwF4QE8c3Bhbj7lhbEyOOiusOW9lTwvc3Bhbj48c3BhbiBjbGFzcz0iZGlzYWJsZWQiPsKr5LiK5LiA6aG1PC9zcGFuPjxzcGFuIGNsYXNzPSJjdXJyZW50Ij4xPC9zcGFuPjxhIGhyZWY9InRyYWRpbmcuYXNweD9wYWdlSW5kZXg9MiI+MjwvYT48YSBocmVmPSJ0cmFkaW5nLmFzcHg/cGFnZUluZGV4PTMiPjM8L2E+PGEgaHJlZj0idHJhZGluZy5hc3B4P3BhZ2VJbmRleD0yIj7kuIvkuIDpobXCuzwvYT5kAgIPFgIeBFRleHQFDDAuMDAwMDAwMDAwMGQCBg8WAh8DZWQCCg8WAh8DBQwyLjg3NTAwMDAwMDBkZPxbJEdAI+qEyB7ljAZvxxYqXNKMdpfv3c4WClxDa78i" />
+    </div>
+
+    <div>
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="07C1CC7C" />
+        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAtxDD+R7w6FMR7GTG5b/etOqxNPHKo4ytIuS0dM10XyNokHj7KsGQZ9KI/q0cgR79cr/2XmzEAsEaPOe/xAUpiAS+K3OHRP/XnJs4EXk8jbNvd2KVegFty82T/3u5gbxa72ey+ClwVUuCLirNvBH1XQfmJ89645FfkyK1kHLdcU/qplFGAGk3PfMvUl3wFrSedXC7e1EYLAEtUBCnLZ1AIZ0Or8K1GFNHC1A6e2Btgh7qp0YUckQNI3hXnlzctwZRBleb2THyIWjoIL9XkLN+T1" />
+    </div>
+
+
+    <div class="left" th:replace="layout :: left">
+    </div>
+    <div class="right rightbg">
+        <div class="header">
+
+            <div class="backhome">
+                <a href="/usercenter.aspx">返回首页</a>
+            </div>
+            <div class="exit">
+                <a href="/login.aspx?action=exit">安全退出</a>
+            </div>
+            <div class="guid">
+                UID：<span>9541b5ec426643e5a4db20828f1027ed</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="iframe">
+
+            <div class="bigtitle">
+                <span>交易中心</span>
+            </div>
+
+            <div class="trading">
+                <div class="tab">
+                    <a href="javascript:void(0)" class="selected">明细</a><a href="javascript:void(0)">出金</a><a href="javascript:void(0)">内部转账</a>
+                </div>
+                <div class="content">
+                    <div class="box selected t0">
+                        <!--明细-->
+                        <div class="amount">
+                            <table class="opacity_bg">
+                                <tbody>
+                                <tr class="title">
+                                    <th>金额/MCC</th>
+                                    <th>项目</th>
+                                    <th>来源/去向</th>
+                                    <th>时间</th>
+                                </tr>
+
+
+                                <tr>
+                                    <td>2.427000</td>
+                                    <td>算力</td>
+                                    <td>饶桂连520</td>
+                                    <td>2017-11-23 00:07:44</td>
+                                </tr>
+
+                                <tr>
+                                    <td>-12.000000</td>
+                                    <td>内部转账</td>
+                                    <td>cyf941006</td>
+                                    <td>2017-11-22 13:24:51</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2.427000</td>
+                                    <td>算力</td>
+                                    <td>饶桂连520</td>
+                                    <td>2017-11-22 00:07:43</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2.427000</td>
+                                    <td>算力</td>
+                                    <td>饶桂连520</td>
+                                    <td>2017-11-21 00:07:45</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2.427000</td>
+                                    <td>算力</td>
+                                    <td>饶桂连520</td>
+                                    <td>2017-11-20 00:07:35</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2.427000</td>
+                                    <td>算力</td>
+                                    <td>饶桂连520</td>
+                                    <td>2017-11-19 00:07:37</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2.427000</td>
+                                    <td>算力</td>
+                                    <td>饶桂连520</td>
+                                    <td>2017-11-18 00:07:33</td>
+                                </tr>
+
+                                <tr>
+                                    <td>-24.000000</td>
+                                    <td>内部转账</td>
+                                    <td>cyf941006</td>
+                                    <td>2017-11-17 17:11:48</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2.427000</td>
+                                    <td>算力</td>
+                                    <td>饶桂连520</td>
+                                    <td>2017-11-17 00:07:32</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2.427000</td>
+                                    <td>算力</td>
+                                    <td>饶桂连520</td>
+                                    <td>2017-11-16 00:07:32</td>
+                                </tr>
+
+
+
+                                </tbody>
+                            </table>
+
+                            <div class="clear" style="height: 30px;"></div>
+                            <div id="ctl00_ContentPlaceHolder1_pageContent" class="default" style="text-align: center;"><span>共28记录</span><span class="disabled">«上一页</span><span class="current">1</span><a href="trading.aspx?pageIndex=2">2</a><a href="trading.aspx?pageIndex=3">3</a><a href="trading.aspx?pageIndex=2">下一页»</a></div>
+                        </div>
+                    </div>
+                    <div class="box selected t1" style="display:none;">
+                        <!--出金-->
+                        <dl>
+                            <dt>可出数量：</dt>
+                            <dd class="m_guzhi">
+                                0.0000000000</dd>
+                        </dl>
+                        <dl>
+                            <dt>出金地址：</dt>
+                            <dd>
+                                <input name="ctl00$ContentPlaceHolder1$TextBox1" type="text" id="ctl00_ContentPlaceHolder1_TextBox1" class="v_guid" /></dd>
+                        </dl>
+                        <dl>
+                            <dt>出金数量：</dt>
+                            <dd>
+                                <input name="ctl00$ContentPlaceHolder1$txtAmount" type="text" id="ctl00_ContentPlaceHolder1_txtAmount" class="v_guzhi" /></dd>
+                        </dl>
+                        <dl>
+                            <dt style="width:480px; color:#999999;">备注：出金数量必须是整数</dt>
+                        </dl>
+                        <dl>
+                            <dt>支付密码：</dt>
+                            <dd>
+                                <input name="ctl00$ContentPlaceHolder1$txtPw" type="password" id="ctl00_ContentPlaceHolder1_txtPw" /></dd>
+                        </dl>
+                        <dl>
+                            <dt>&nbsp;</dt>
+                            <dd class="msg">
+
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>&nbsp;</dt>
+                            <dd>
+                                <input type="submit" name="ctl00$ContentPlaceHolder1$btnT1" value="确  认" id="ctl00_ContentPlaceHolder1_btnT1" class="btn" />
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="box t2" style="display:none;">
+                        <!--内部转账-->
+                        <p><input name="ctl00$ContentPlaceHolder1$txtUserName" type="text" id="ctl00_ContentPlaceHolder1_txtUserName" placeholder="输入账号名称" />&nbsp;
+                            <label id="getun"></label>
+                        </p>
+                        <p><input name="ctl00$ContentPlaceHolder1$txtNum" type="text" id="ctl00_ContentPlaceHolder1_txtNum" class="NumAmount" placeholder="数量" />
+                            【余额：2.8750000000】
+                        </p>
+                        <p><input name="ctl00$ContentPlaceHolder1$txtPW2" type="password" id="ctl00_ContentPlaceHolder1_txtPW2" placeholder="支付密码" /></p>
+                        <p class="t2code">
+                            <input name="ctl00$ContentPlaceHolder1$txtCode" type="text" id="ctl00_ContentPlaceHolder1_txtCode" placeholder="验证码" />
+                            <input type="button" value="发送验证码" />
+                        </p>
+                        <p class="msg"></p>
+                        <p><input type="submit" name="ctl00$ContentPlaceHolder1$btnT2" value="确定申请" id="ctl00_ContentPlaceHolder1_btnT2" class="btn" /></p>
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                $(function () {
+                    $("#ctl00_ContentPlaceHolder1_txtUserName").blur(function () {
+                        var username = $(this).val();
+                        //alert(username);
+                        $.ajax({
+                            type: "POST",
+                            url: "/tools/sms.ashx?action=getName",
+                            dataType: "text",
+                            timeout: 20000,
+                            data: {
+                                "username": username
+                            },
+                            success: function (data, textStatus) {
+                                $("#getun").text(data);
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                alert("没有找到该用户");
+                            }
+                        });
+                    })
+                })
+            </script>
+
+        </div>
+    </div>
+
+
+    <div class="clear">
+    </div>
+</form>
+</body>
+</html>

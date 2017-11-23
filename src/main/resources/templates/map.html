@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+    矿机平台 - MCC
+</title>
+    <link href="../css/main.css?guid=fc4728b06a8c477180bb263c010ce276" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/main.js?guid=6652ccb6ac784acaaa67ac92e3bc68f7"></script>
+    <script type="text/javascript">
+        $(function () {
+            resize();
+            $(window).resize(function () {
+                resize();
+            })
+
+
+
+
+
+
+
+        })
+
+        function resize() {
+            $(".left").css("min-height", height);
+            //$(".right .iframe").css("min-height",height);
+            $(".right").css("min-height", height);
+        }
+
+
+
+    </script>
+
+
+    <style>
+        .right.rightbg{ background:black;}
+        .right.rightbg.iframe{ background:url(../images/map.gif);}
+        .frame .left .nav ul li.icon_nav_6 {
+            background-color: #FF6600;
+        }
+    </style>
+
+
+    <style type="text/css">
+        body.frame{ min-width:1400px;}
+    </style>
+</head>
+<body class="frame">
+<form name="aspnetForm" method="post" action="gif.aspx" id="aspnetForm" enctype="multipart/form-data">
+    <div>
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTY1NDU2MTA1Mg9kFgJmD2QWAgIDDxYCHgdlbmN0eXBlBRNtdWx0aXBhcnQvZm9ybS1kYXRhZGSWvDrIOyKC3fmO+q68zQXGE1UR5L0jSrVLorIBRdN/vw==" />
+    </div>
+
+    <div>
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A2556274" />
+        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAJgHh+EElNbQnhd/RZVit3WqxNPHKo4ytIuS0dM10XyNrNA1LxNGLQWgoTrtwhIxDcCuqQ5WGFBNaXbegn02xzD" />
+    </div>
+
+
+    <div class="left" th:replace="layout :: left">
+
+        <div class="logo">
+            <img src="images/logo.png" />
+        </div>
+        <div class="userinfo">
+            <div class="ava">
+                <img src="images/group_2.png" id="avatar" class="avatar" />
+                <input type="file" name="ctl00$uploadAvatar" id="ctl00_uploadAvatar" style="display:none;" />
+                <input type="submit" name="ctl00$btnAvatar" value="更换头像" id="ctl00_btnAvatar" style="display:none;" />
+            </div>
+            <div class="nickname">
+                饶桂连520
+            </div>
+            <div class="level">
+                矿机状态：
+                已激活
+
+
+
+            </div>
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li class="icon_nav_1">
+                    <a href="member.aspx">矿机管理</a>
+                </li>
+
+                <li class="icon_nav_2">
+                    <a href="trading.aspx">财务中心</a>
+                </li>
+                <li class="icon_nav_3">
+                    <a href="userinfo.aspx?action=edit">我的资料</a>
+                </li>
+                <li class="icon_nav_4">
+                    <a href="download.aspx">电子钱包</a>
+                </li>
+                <li class="icon_nav_5">
+                    <a href="/news">矿协通知</a>
+                </li>
+                <li class="icon_nav_6">
+                    <a href="/gif.aspx">算力中心</a>
+                </li>
+
+            </ul>
+            <div style="text-align:center; margin:10px; color:white;">
+                客服邮箱：<a href="mailto:info@mcccloud.com">info@mcccloud.com</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="right rightbg">
+        <div class="header" th:replace="layout :: header">
+
+            <div class="backhome">
+                <a href="/usercenter.aspx">返回首页</a>
+            </div>
+            <div class="exit">
+                <a href="/login.aspx?action=exit">安全退出</a>
+            </div>
+            <div class="guid">
+                UID：<span>9541b5ec426643e5a4db20828f1027ed</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="iframe">
+
+            <div>
+                <img src="../images/map.gif" />
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="clear">
+    </div>
+</form>
+</body>
+</html>

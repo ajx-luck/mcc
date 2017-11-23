@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+    矿机平台 - MCC
+</title>
+    <link href="../css/main.css?guid=fc4728b06a8c477180bb263c010ce276" rel="stylesheet" />
+    <script src="../scripts/jquery-1.10.2.min.js"></script>
+    <script src="../js/main.js?guid=6652ccb6ac784acaaa67ac92e3bc68f7"></script>
+    <script type="text/javascript">
+        $(function () {
+            resize();
+            $(window).resize(function () {
+                resize();
+            })
+
+
+
+
+
+
+
+
+        })
+
+        function resize() {
+            var height = $(document).height();// - $(".header").height();
+            //$(".right").height(height);
+            $(".left").css("min-height", height);
+            //$(".right .iframe").css("min-height",height);
+            $(".right").css("min-height", height);
+        }
+
+
+
+    </script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $(".hang3 .title a").click(function () {
+                $(this).addClass("selected");
+                $(".hang3 .title a").not(this).removeClass("selected");
+                var index = $(this).index();
+                $(".hang3 .content .box").hide();
+                $(".hang3 .content .box").eq(index).show();
+
+            })
+
+            var leftday = parseInt($(".leftday").text());
+            //alert(leftday);
+            var i = 365;
+            var IntervalVal=setInterval(function () {
+                i = i - 1;
+                $(".leftday").text(i);
+                if (i <= leftday) {
+                    clearInterval(IntervalVal);
+                }
+            },50)
+        })
+    </script>
+    <style type="text/css">
+        body.frame{ min-width:1400px;}
+    </style>
+</head>
+</html>
