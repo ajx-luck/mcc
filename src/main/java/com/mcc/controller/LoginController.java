@@ -1,6 +1,6 @@
 package com.mcc.controller;
 
-import com.mcc.bean.User;
+import com.mcc.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +30,7 @@ public class LoginController {
 
     @RequestMapping(value = "/loginIn",method = RequestMethod.POST)
     public String loginIn(User user,ModelMap map){
-        if("admin".equals(user.getAccount()) && "123456".equals(user.getPassword())){
+        if("admin".equals(user.getUserName()) && "123456".equals(user.getPassWord())){
             return "index";
         }
         map.addAttribute("user",user);

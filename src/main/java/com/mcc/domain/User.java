@@ -1,4 +1,4 @@
-package com.mcc.bean;
+package com.mcc.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,9 +15,9 @@ public class User {
     private Long id;
     @Column(nullable = false,unique = true)
     private String userName;
-    @Column(nullable = true)
+    @Column(nullable = true, unique = true)
     private String passWord;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String email;
     @Column(nullable = true)
     private String profilePicture;
@@ -29,6 +29,12 @@ public class User {
     private Double coin;
     @Column(nullable = false)
     private Integer endDate;
+    @Column(nullable = true, unique = true)
+    private String phone;
+    @Column(nullable = false)
+    private Integer grade;
+    @Column(nullable = false)
+    private String referrer;
 
     public Long getId() {
         return id;
@@ -100,5 +106,29 @@ public class User {
 
     public void setEndDate(Integer endDate) {
         this.endDate = endDate;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+
+    public String getReferrer() {
+        return referrer;
+    }
+
+    public void setReferrer(String referrer) {
+        this.referrer = referrer;
     }
 }

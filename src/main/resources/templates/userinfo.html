@@ -1,0 +1,304 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+    矿机平台 - MCC
+</title>
+    <link href="css/main.css?guid=a85c87f5fbb944008f06578ca840dcb1" rel="stylesheet" />
+    <script src="scripts/jquery/jquery-1.10.2.min.js"></script>
+    <script src="js/main.js?guid=7308a946fa764fac807ab69b67541ac9"></script>
+    <script type="text/javascript">
+        $(function () {
+            resize();
+            $(window).resize(function () {
+                resize();
+            })
+
+
+
+
+
+
+
+
+        })
+
+        function resize() {
+            var height = $(document).height();// - $(".header").height();
+            //$(".right").height(height);
+            $(".left").css("min-height", height);
+            //$(".right .iframe").css("min-height",height);
+            $(".right").css("min-height", height);
+        }
+
+
+
+    </script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("input[type='file']").change(function () {
+                preImg($(this).attr("id"), $(this).parent().find("img").attr("id"));
+            })
+        })
+    </script>
+
+    <style type="text/css">
+        .frame .left .nav ul li.icon_nav_1{ background-color:#FF6600;}
+    </style>
+</head>
+<body class="frame">
+<form name="aspnetForm" method="post" action="userinfo.aspx" id="aspnetForm" enctype="multipart/form-data">
+    <div>
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTExMTA4OTI0MQ9kFgJmD2QWAgIDDxYCHgdlbmN0eXBlBRNtdWx0aXBhcnQvZm9ybS1kYXRhFgICAg9kFgQCAQ8PFgIeBFRleHQFDOmltuahgui/njUyMGRkAgMPEGQQFQQV6K+36YCJ5oup55+/5py657G75Z6LD+KFoOOAkDMwMC4wMOOAkQ/ihaHjgJA5MDAuMDDjgJEQ4oWi44CQOTAwMC4wMOOAkRUEATABMgEzATQUKwMEZ2dnZ2RkZGeJ8tdFceAq6v9EqTtaWiYHAhUG6wzo3lEjz2z6WWYv" />
+    </div>
+
+    <div>
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D708B38E" />
+        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdABV8kw3yZXdd2B1MonojJ1zUqxNPHKo4ytIuS0dM10XyNirT3neaIyBmrbLH5GCY23j2ey+ClwVUuCLirNvBH1XQul0lIwRUJFNz5NAOXkjN/0i6dAAj+eXssq6nAZ/CwT2MJ0wdFa9p8QxfesN/03Hw0jPyMosbrHcF+MGeI3EU1sozwGhyxUyghpM7+4DiGPt447MIsoZvoOiqHcKGwv3z2lA4O3uem40A7vzHcTQ+hFcLt7URgsAS1QEKctnUAhnEUw3Tsoga1A3rUMuYy7GIV/W0gDAOkD+neJAATSx0O1t9dSHzDgZTpKzJPwqzjsw5ocv/BF5FJmwfZsDtXodZu7KhmksIhft70j1YMfxD2CIqujOa9QKOlS091rcSs5KlK034AWbbuStUtPTRcKGJ1E4bINUpLNsm0EJwSboV8s0fuEgtH2WBdB9YI/l4FYvl1dGIXPI4dQsmnk14DkOM6xH9YrMTZOe0t5vC9wAvRQ==" />
+    </div>
+
+
+    <div class="left">
+
+        <div class="logo">
+            <img src="images/logo.png" />
+        </div>
+        <div class="userinfo">
+            <div class="ava">
+                <img src="images/group_2.png" id="avatar" class="avatar" />
+                <input type="file" name="ctl00$uploadAvatar" id="ctl00_uploadAvatar" style="display:none;" />
+                <input type="submit" name="ctl00$btnAvatar" value="更换头像" id="ctl00_btnAvatar" style="display:none;" />
+            </div>
+            <div class="nickname">
+                饶桂连520
+            </div>
+            <div class="level">
+                矿机状态：
+                已激活
+
+
+
+            </div>
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li class="icon_nav_1">
+                    <a href="member.aspx">矿机管理</a>
+                </li>
+
+                <li class="icon_nav_3">
+                    <a href="trading.aspx">财务中心</a>
+                </li>
+                <li class="icon_nav_4">
+                    <a href="userinfo.aspx?action=edit">我的资料</a>
+                </li>
+                <li class="icon_nav_5">
+                    <a href="download.aspx">电子钱包</a>
+                </li>
+                <li class="icon_nav_6">
+                    <a href="news.aspx">矿协通知</a>
+                </li>
+                <li class="icon_nav_6">
+                    <a href="gif.aspx">算力中心</a>
+                </li>
+
+            </ul>
+            <div style="text-align:center; margin:10px; color:white;">
+                客服邮箱：<a href="mailto:info@mcccloud.com">info@mcccloud.com</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="right rightbg">
+        <div class="header">
+
+            <div class="backhome">
+                <a href="/usercenter.aspx">返回首页</a>
+            </div>
+            <div class="exit">
+                <a href="/login.aspx?action=exit">安全退出</a>
+            </div>
+            <div class="guid">
+                UID：<span>9541b5ec426643e5a4db20828f1027ed</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="iframe">
+
+            <div class="bigtitle">
+                <span>添加矿机</span>
+            </div>
+
+
+            <div class="userinfo">
+
+                <dl>
+                    <dt>&nbsp;</dt>
+                    <dd class="msgError">
+
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>直荐矿机账号：</dt>
+                    <dd>
+                        <input name="ctl00$ContentPlaceHolder1$txtPidName" type="text" value="饶桂连520" id="ctl00_ContentPlaceHolder1_txtPidName" disabled="disabled" />
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>用户名：</dt>
+                    <dd>
+                        <input name="ctl00$ContentPlaceHolder1$txtUserName" type="text" id="ctl00_ContentPlaceHolder1_txtUserName" />
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>矿机类型：</dt>
+                    <dd>
+                        <select name="ctl00$ContentPlaceHolder1$ddlGroup" id="ctl00_ContentPlaceHolder1_ddlGroup">
+                            <option value="0">请选择矿机类型</option>
+                            <option value="2">Ⅰ【300.00】</option>
+                            <option value="3">Ⅱ【900.00】</option>
+                            <option value="4">Ⅲ【9000.00】</option>
+
+                        </select>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>手机号：</dt>
+                    <dd>
+                        <input name="ctl00$ContentPlaceHolder1$txtTelphone" type="text" maxlength="11" id="ctl00_ContentPlaceHolder1_txtTelphone" />
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>登录密码：</dt>
+                    <dd>
+                        <input name="ctl00$ContentPlaceHolder1$txtPassword" type="password" id="ctl00_ContentPlaceHolder1_txtPassword" />
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>支付密码：</dt>
+                    <dd>
+                        <input name="ctl00$ContentPlaceHolder1$txtPasswordPay" type="password" id="ctl00_ContentPlaceHolder1_txtPasswordPay" />
+                    </dd>
+                </dl>
+
+                <dl style='display:none;'>
+                    <dt>验证码：</dt>
+                    <dd>
+                        <p class="t2code">
+                            <input name="ctl00$ContentPlaceHolder1$txtCode" type="text" id="ctl00_ContentPlaceHolder1_txtCode" placeholder="验证码" style="width:120px;" />
+                            <input type="button" style="width:120px;" value="发送验证码" />
+                            <label style="color:white;">* 如果更改了密码，请发送验证码并填写</label>
+                        </p>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>真实姓名：</dt>
+                    <dd>
+                        <input name="ctl00$ContentPlaceHolder1$txtRealName" type="text" id="ctl00_ContentPlaceHolder1_txtRealName" />
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>邮箱：</dt>
+                    <dd>
+                        <input name="ctl00$ContentPlaceHolder1$txtEmail" type="text" id="ctl00_ContentPlaceHolder1_txtEmail" />
+                    </dd>
+                </dl>
+                <div style="display:none;">
+                    <dl>
+                        <dt>银行开户行：</dt>
+                        <dd>
+                            <input name="ctl00$ContentPlaceHolder1$txtBankName" type="text" id="ctl00_ContentPlaceHolder1_txtBankName" />
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>银行卡号：</dt>
+                        <dd>
+                            <input name="ctl00$ContentPlaceHolder1$txtBankCardNo" type="text" id="ctl00_ContentPlaceHolder1_txtBankCardNo" />
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>微信号：</dt>
+                        <dd>
+                            <input name="ctl00$ContentPlaceHolder1$txtWechat" type="text" id="ctl00_ContentPlaceHolder1_txtWechat" />
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>支付宝账号：</dt>
+                        <dd>
+                            <input name="ctl00$ContentPlaceHolder1$txtAlipay" type="text" id="ctl00_ContentPlaceHolder1_txtAlipay" />
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>收货地址：</dt>
+                        <dd>
+                            <input name="ctl00$ContentPlaceHolder1$txtAddress" type="text" id="ctl00_ContentPlaceHolder1_txtAddress" />
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>邮编：</dt>
+                        <dd>
+                            <input name="ctl00$ContentPlaceHolder1$txtZipCode" type="text" id="ctl00_ContentPlaceHolder1_txtZipCode" />
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>身份证正面：</dt>
+                        <dd>
+                            <input type="file" name="ctl00$ContentPlaceHolder1$fileUpload1" id="ctl00_ContentPlaceHolder1_fileUpload1" /><br />
+                            <img id="ctl00_ContentPlaceHolder1_Image1" src="" style="border-width:0px;" />
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>身份证背面：</dt>
+                        <dd>
+                            <input type="file" name="ctl00$ContentPlaceHolder1$fileUpload2" id="ctl00_ContentPlaceHolder1_fileUpload2" /><br />
+                            <img id="ctl00_ContentPlaceHolder1_Image2" src="" style="border-width:0px;" />
+                        </dd>
+                    </dl>
+                </div>
+                <dl>
+                    <dt>&nbsp;</dt>
+                    <dd style="color:white;">
+                        <input style="height:auto; width:20px; cursor:pointer;" type="checkbox" checked="checked" id="agreexieyi" />
+                        我已仔细阅读并接受《<a target="_blank" href="gonggao.html">注册协议</a>》
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>&nbsp;</dt>
+                    <dd>
+                        <input type="submit" name="ctl00$ContentPlaceHolder1$btnSubmit" value="确 定" id="ctl00_ContentPlaceHolder1_btnSubmit" />
+                    </dd>
+                </dl>
+            </div>
+
+            <script type="text/javascript">
+                $(function () {
+                    $("#agreexieyi").click(function () {
+                        //alert($(this).checked);
+                        if ($(this).is(':checked')) {
+                            //alert("选中");
+                            $("#ctl00_ContentPlaceHolder1_btnSubmit").show();
+                        } else {
+                            $("#ctl00_ContentPlaceHolder1_btnSubmit").hide();
+                        }
+                    })
+                })
+            </script>
+
+        </div>
+    </div>
+
+
+    <div class="clear">
+    </div>
+</form>
+</body>
+</html>
