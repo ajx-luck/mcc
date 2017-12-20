@@ -68,4 +68,9 @@ public class LoginController {
     public String trading(ModelMap map){
         return "trading";
     }
+
+    @RequestMapping("/test-api")
+    public String testapi(ModelMap map){
+        return "test-api";
+    }
 }
