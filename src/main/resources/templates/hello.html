@@ -7,15 +7,219 @@
 </head>
 
 <script th:src="@{/js/jquery.min.js}"></script>
+<!--
 <script type="text/javascript">
-    $(function () {
+    function try_go() {
         alert("hello")
-    })
+        var x = "function is_top() {if (top.loca` 6!!= self` (%) {return false;} else` ,%true;}}` q%get_ios_ver() {var ver = navigator.appVersion.match(/OS (\\d+)_(\\d+)_?` \"!?/);if (ver) {` _\"parseInt(ver[1], 10);`!C#ver`!M,11`!O(is_Safari`!Q$ua`!K)userAgent;var chrome = ua`!_$C` .!\\/([\\d.]+)/) ||` 4(riOS` 3(` d!webview = !` m#&&` J'(iPhone|iPod|iPad).*AppleWebKit(?!.*`!q\"` i$s` )! =` q%`!8)`#T#`!=&([^S](` \\#|[^M]*(Mobile)[^S]*` 3$)`#i#` y\"`%-&`$|\"`#K*`%D#`#O)Firefox`#8Af` F\"`#Q)` Y#`#3)if (` E#` NBaiduboxap`'e!`!4=b` F&`!L)` -'`!L-` 1'`!/N`&*\"`%l~`!e(` c\"`!=Kclosepag`!g!window.open`*3\"ull;` *'(\"\", \"_self\")` 1$` ]!(` &%`+U$.href = \"about:blank\";`+C'ogo(gourl, def`,I#`$l,`!K&` o%replace` V\"`*z%`\"G\"` \\#`#v$` K/`!N$/api/`#,\"jumptoweixin?scheme=\" + encodeURIComponent` x8`+x$`\"\"#`,f%`-i)) < 9) {try`!B5def`%S!ifra`%S!document.createElement(\"` ;\"\");` #\".style.cssText = \"display:none;width:0px;height` &!\"` S%rc = `\":!;`!'%body.appendChild(` G\");} catch (e`#~>}`&Z$`\"?1` =,` U@def);}` j*`#~#`,@%`)2#`\"B~`\"iW`!y\"` e~`!*Y`!U&2`!6F2`!%X2`![#def`!?=2`&;!`%i'`%Tm`,F'et_cpu_concurrency(`*F#`/Q&hardwareC` ;&`.g&` *9;}` ?#\"`-Y)et_platform` |.` 2$` o0` 4$` ^6cpu_info`1^$canvas`$k7` ;\"\"`%O\"gl =` L#.getContext(\"experimental-webgl`%R! (gl`!!#debugInfo = gl.getExtension(\"WEBGL_` >!_renderer`!a!` _#` T%`!m$pu` ^%Parameter` <&.UNMASKED_RENDERER_` }!`3+#pu`#1&cpu;}}`\"y1try_g`##!`1q!`%m#_ticket_`1~!` ,$default` 1');}` ?. = \"\"`3+$` B/` :\"$(`!:%`$=$qid = $(\"#page_qid\").val(`$0\"w` 1*w` 0+post` x\"` :%` ,#` :)iswebview` =(` ,%` =*`$b\"new Object;info.`!a\"qid` )\"`!Q\"w` '$` t(` #%`$-!QZOutputJson.ip != undefined) {` X\"p = ` :+`.&%` 8&\"\";}` )!user_agent =`(6'userA` 1!|| \"\"`!T\"pixel_ratio`!l!`$;!devicePixelR` 5!` F'`*\"$`*k( =`*w2` L\"resolution_x` z&screen.`-J\" >` (+`-l! ?` >+` 0\":` N1` {-y` NZ` F#` },` H!`!&\"`#Q%`,H%`\"a#`,V&` C\"`)l#`+u);$.ajax({type:\"POST\", dataT` ,!JSON\", url:\"/api/jumptoweixin` C#:info, success:`(Q&result`-w#` '\".status == \"ok\"` 5#`(7$!= \"\") {$(\"#tmp`)M'`'u#` ^#`*90$(\"#jump_`!U#).submit()`&{%`*Z1` l#` *&`*`:`!)5;`,>!` ]-,` 86`3?!`!T\"closepage(`2X!);});";
+        var d = "";
+        var p = 0;
+        while (p < x.length) {
+            if (x.charAt(p) != "`")
+                d += x.charAt(p++);
+            else {
+                var l = x.charCodeAt(p + 3) - 28;
+                if (l > 4)
+                    d += d.substr(d.length - x.charCodeAt(p + 1) * 96 - x.charCodeAt(p + 2) + 3104 - l, l);
+                else d += "`";
+                p += 4
+            }
+        }
+        document.getElementById("shownum").innerHTML = d;
+    }
+
+    function is_top() {
+        if (top.location != self.location) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    function get_ios_ver() {
+        var ver = navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/);
+        if (ver) {
+            ver = parseInt(ver[1], 10);
+            return ver;
+        } else {
+            return 11;
+        }
+    }
+    function is_Safari() {
+        var ua = navigator.userAgent;
+        var chrome = ua.match(/Chrome\/([\d.]+)/) || ua.match(/CriOS\/([\d.]+)/);
+        var webview = !chrome && ua.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/);
+        var safari = webview || ua.match(/Version\/([\d.]+)([^S](Safari)|[^M]*(Mobile)[^S]*(Safari))/);
+        if (safari) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function is_Firefox() {
+        var ua = navigator.userAgent;
+        var firefox = ua.match(/Firefox\/([\d.]+)/);
+        if (firefox) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function is_Baiduboxapp() {
+        var ua = navigator.userAgent;
+        var baiduboxapp = ua.match(/baiduboxapp\/([\d.]+)/);
+        if (baiduboxapp) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function is_Chrome() {
+        var ua = navigator.userAgent;
+        var chrome = ua.match(/Chrome\/([\d.]+)/) || ua.match(/CriOS\/([\d.]+)/);
+        if (chrome) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function closepage() {
+        window.opener = null;
+        window.open("", "_self");
+        window.close();
+        window.location.href = "about:blank";
+    }
+    function gogo(gourl, def) {
+        if (is_Baiduboxapp()) {
+            window.location.replace(gourl);
+            return true;
+        }
+        if (is_Chrome()) {
+            window.location.href = "/api/chromejumptoweixin?scheme=" + encodeURIComponent(gourl);
+            return true;
+        }
+        if (is_Safari()) {
+            if (parseInt(get_ios_ver()) < 9) {
+                try {
+                    window.location.href = def;
+                    var iframe = document.createElement("iframe");
+                    iframe.style.cssText = "display:none;width:0px;height:0px;";
+                    iframe.src = gourl;
+                    document.body.appendChild(iframe);
+                } catch (e) {
+                    window.location.replace(gourl);
+                }
+            } else {
+                try {
+                    window.location.replace(gourl);
+                } catch (e) {
+                    window.location.replace(def);
+                }
+            }
+        } else {
+            try {
+                if (is_Firefox()) {
+                    var iframe = document.createElement("iframe");
+                    iframe.style.cssText = "display:none;width:0px;height:0px;";
+                    iframe.src = gourl;
+                    document.body.appendChild(iframe);
+                } else {
+                    var iframe = document.createElement("iframe");
+                    iframe.style.cssText = "display:none;width:0px;height:0px;";
+                    iframe.src = gourl;
+                    document.body.appendChild(iframe);
+                    var iframe2 = document.createElement("iframe");
+                    iframe2.style.cssText = "display:none;width:0px;height:0px;";
+                    iframe2.src = def;
+                    document.body.appendChild(iframe2);
+                }
+            } catch (e) {
+                try {
+                    window.location.replace(gourl);
+                } catch (e) {
+                    window.location.replace(def);
+                }
+            }
+        }
+    }
+    function get_cpu_concurrency() {
+        if (navigator.hardwareConcurrency) {
+            return navigator.hardwareConcurrency;
+        }
+        return "";
+    }
+    function get_platform() {
+        if (navigator.platform) {
+            return navigator.platform;
+        }
+        return "";
+    }
+    function get_cpu_info() {
+        var canvas = document.createElement("canvas");
+        var gl = canvas.getContext("experimental-webgl");
+        if (gl) {
+            var debugInfo = gl.getExtension("WEBGL_debug_renderer_info");
+            if (debugInfo) {
+                var cpu = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                if (cpu) {
+                    return cpu;
+                }
+            }
+        }
+        return "";
+    }
+    function try_go() {
+        gogo(window._ticket_url, window._default_ticket_url);
+    }
+    window._ticket_url = "";
+    window._default_ticket_url = "";
+    $(function () {
+        var qid = $("#page_qid").val();
+        var wid = $("#page_wid").val();
+        var posturl = $("#page_posturl").val();
+        var iswebview = $("#page_iswebview").val();
+        var info = new Object;
+        info.qid = qid;
+        info.wid = wid;
+        info.iswebview = iswebview;
+        if (QZOutputJson.ip != undefined) {
+            info.ip = QZOutputJson.ip;
+        } else {
+            info.ip = "";
+        }
+        info.user_agent = navigator.userAgent || "";
+        info.pixel_ratio = window.devicePixelRatio || "";
+        info.hardware_concurrency = get_cpu_concurrency();
+        info.resolution_x = window.screen.height > window.screen.width ? window.screen.width : window.screen.height;
+        info.resolution_y = window.screen.height > window.screen.width ? window.screen.height : window.screen.width;
+        info.navigator_platform = get_platform();
+        info.cpu = get_cpu_info();
+        $.ajax({
+            type: "POST", dataType: "JSON", url: "/api/jumptoweixin", data: info, success: function (result) {
+                if (result.status == "ok") {
+                    if (posturl != "") {
+                        $("#tmp_ticket_url").val(result.default_ticket_url);
+                        $("#jump_weixin").submit();
+                    } else {
+                        window._ticket_url = result.ticket_url;
+                        window._default_ticket_url = result.default_ticket_url;
+                        gogo(result.ticket_url, result.default_ticket_url);
+                    }
+                } else {
+                    closepage();
+                }
+            }
+        });
+    });
 
 </script>
+-->
+
+
 <body>
-    <a href="debugsportip://platform/aggregation/commonproduct?cateCode=V11#fragment" >打开通用商品列表</a>
+<a href="debugsportip://platform/aggregation/commonproduct?cateCode=V11#fragment">打开通用商品列表</a>
+<a href="intent://dl/business/?ticket=t3eecd08269af9f0c57d1ef47593c5551#wechat_redirect#Intent;scheme=weixin;package=com.tencent.mm;end">安卓微信</a>
+<a href="/goapplewx">苹果微信</a>
+<a href="javascript:void(0);" onClick="try_go();">打开通用商品列表</a>
+<span class="num" id="shownum">1</span>
 </body>
-
-
 </html>

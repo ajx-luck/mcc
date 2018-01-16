@@ -21,4 +21,9 @@ public class Trade {
     private String tradeName;
     @Column(nullable = false,unique = true)
     private String userName;
+    @Column(nullable = false)
+    private Integer tradeType;
+    @Column(nullable = false)
+    private String tradeDesc;
+
 }

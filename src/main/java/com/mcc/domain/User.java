@@ -33,8 +33,17 @@ public class User {
     private String phone;
     @Column(nullable = false)
     private Integer grade;
+    /**
+     * 推荐人
+     */
     @Column(nullable = false)
     private String referrer;
+    /**
+     * 推广金额
+     */
+    @Column(nullable = false)
+    private Integer referrerCoin;
+
 
     public Long getId() {
         return id;
