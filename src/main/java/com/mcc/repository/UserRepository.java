@@ -8,5 +8,6 @@ import org.springframework.data.repository.query.Param;
  * Created by B04e on 2017/11/24.
  */
 public interface UserRepository extends JpaRepository<User,Long>{
-    User findByUserName(@Param("userName") String userName);
+    User findUserByUserName(@Param("userName") String userName);
+    User findUserByUserNameAndPassWord(@Param("userName") String userName,@Param("passWord") String passWord);
 }

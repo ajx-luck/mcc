@@ -43,9 +43,9 @@ public class CoinService {
      * @param coin 转账金额
      */
     @Transactional(value="transactionManager", rollbackFor = Exception.class)
-    public void trade(String fromUser,String toUser,final double coin) throws Exception {
-        User user1 = mUserRepository.findByUserName(fromUser);
-        User user2 = mUserRepository.findByUserName(toUser);
+    public void trade(String fromUser,String toUser,final long coin) throws Exception {
+        User user1 = mUserRepository.findUserByUserName(fromUser);
+        User user2 = mUserRepository.findUserByUserName(toUser);
         if(user1.getCoin() >= coin) {
             user1.setCoin(user1.getCoin() - coin);
             user2.setCoin(user1.getCoin() + coin);

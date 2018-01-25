@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.List;
 
 /**
  * Created by B04e on 2017/11/13.
@@ -23,27 +24,43 @@ public class User {
     private String profilePicture;
     @Column(nullable = false)
     private Long createTime;
+    /**
+     * 最后更新时间
+     */
     @Column(nullable = false)
     private Long lastModifyTime;
     @Column(nullable = false)
-    private Double coin;
-    @Column(nullable = false)
-    private Integer endDate;
-    @Column(nullable = true, unique = true)
+    private Long coin;
+    @Column(nullable = false, unique = true)
     private String phone;
     @Column(nullable = false)
     private Integer grade;
     /**
-     * 推荐人
+     * 机器id,账号只可以有一种机器
      */
     @Column(nullable = false)
-    private String referrer;
+    private String machineId;
+    /**
+     * 机器剩余存活时间
+     */
+    @Column(nullable = false)
+    private Integer aliveDay;
+    /**
+     * 我的上线
+     */
+    @Column(nullable = false)
+    private String topUserName;
     /**
      * 推广金额
      */
     @Column(nullable = false)
     private Integer referrerCoin;
 
+    /**
+     * 钱包地址
+     */
+    @Column(nullable = false,unique = true)
+    private String walletAddress;
 
     public Long getId() {
         return id;
@@ -101,20 +118,12 @@ public class User {
         this.lastModifyTime = lastModifyTime;
     }
 
-    public Double getCoin() {
+    public Long getCoin() {
         return coin;
     }
 
-    public void setCoin(Double coin) {
+    public void setCoin(Long coin) {
         this.coin = coin;
-    }
-
-    public Integer getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Integer endDate) {
-        this.endDate = endDate;
     }
 
     public String getPhone() {
@@ -133,11 +142,43 @@ public class User {
         this.grade = grade;
     }
 
-    public String getReferrer() {
-        return referrer;
+    public String getMachineId() {
+        return machineId;
     }
 
-    public void setReferrer(String referrer) {
-        this.referrer = referrer;
+    public void setMachineId(String machineId) {
+        this.machineId = machineId;
+    }
+
+    public Integer getReferrerCoin() {
+        return referrerCoin;
+    }
+
+    public void setReferrerCoin(Integer referrerCoin) {
+        this.referrerCoin = referrerCoin;
+    }
+
+    public String getTopUserName() {
+        return topUserName;
+    }
+
+    public void setTopUserName(String topUserName) {
+        this.topUserName = topUserName;
+    }
+
+    public Integer getAliveDay() {
+        return aliveDay;
+    }
+
+    public void setAliveDay(Integer aliveDay) {
+        this.aliveDay = aliveDay;
+    }
+
+    public String getWalletAddress() {
+        return walletAddress;
+    }
+
+    public void setWalletAddress(String walletAddress) {
+        this.walletAddress = walletAddress;
     }
 }
