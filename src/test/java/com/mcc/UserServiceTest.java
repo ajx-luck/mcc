@@ -1,7 +1,7 @@
 package com.mcc;
 
 import com.mcc.domain.User;
-import com.mcc.service.UserService;
+import com.mcc.service.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,24 +17,24 @@ import java.util.Date;
 @SpringBootTest
 public class UserServiceTest {
     @Autowired
-    UserService mUserService;
+    UserServiceImpl mUserService;
 
     @Test
     public void createUserTest(){
         User user = new User();
-        user.setUserName("hmm001");
+        user.setUserName("hmm002");
         user.setPassWord("ax123456");
-        user.setCoin(0L);
+        user.setCoin(1000000000L);
         user.setGrade(1);
         user.setEmail("54678255@qq.com");
         long time = new Date().getTime();
         user.setCreateTime(time);
         user.setLastModifyTime(time);
         user.setProfilePicture("default");
-        user.setMachineId("1");
+        user.setMachineId(1L);
         user.setPhone("188");
-        user.setTopUserName("hmm");
-        user.setReferrerCoin(0);
+        user.setTopUserName("hmm001");
+        user.setReferrerCoin(0L);
         mUserService.createUser(user);
     }
 

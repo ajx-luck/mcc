@@ -16,7 +16,7 @@ public class User {
     private Long id;
     @Column(nullable = false,unique = true)
     private String userName;
-    @Column(nullable = true, unique = true)
+    @Column(nullable = true)
     private String passWord;
     @Column(nullable = false)
     private String email;
@@ -29,9 +29,12 @@ public class User {
      */
     @Column(nullable = false)
     private Long lastModifyTime;
+    /**
+     * 货币单位，存储为整数，实际显示除1,000,000
+     */
     @Column(nullable = false)
     private Long coin;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String phone;
     @Column(nullable = false)
     private Integer grade;
@@ -39,7 +42,7 @@ public class User {
      * 机器id,账号只可以有一种机器
      */
     @Column(nullable = false)
-    private String machineId;
+    private Long machineId;
     /**
      * 机器剩余存活时间
      */
@@ -54,7 +57,7 @@ public class User {
      * 推广金额
      */
     @Column(nullable = false)
-    private Integer referrerCoin;
+    private Long referrerCoin;
 
     /**
      * 钱包地址
@@ -142,19 +145,19 @@ public class User {
         this.grade = grade;
     }
 
-    public String getMachineId() {
+    public Long getMachineId() {
         return machineId;
     }
 
-    public void setMachineId(String machineId) {
+    public void setMachineId(Long machineId) {
         this.machineId = machineId;
     }
 
-    public Integer getReferrerCoin() {
+    public Long getReferrerCoin() {
         return referrerCoin;
     }
 
-    public void setReferrerCoin(Integer referrerCoin) {
+    public void setReferrerCoin(Long referrerCoin) {
         this.referrerCoin = referrerCoin;
     }
 
