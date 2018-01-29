@@ -24,7 +24,9 @@ public class Machine {
     @Column(nullable = false)
     private Long createTime;
 
-
+    public Long getId() {
+        return id;
+    }
 
     public Long getOutCoin() {
         return outCoin;

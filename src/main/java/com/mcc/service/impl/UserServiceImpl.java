@@ -1,4 +1,4 @@
-package com.mcc.service;
+package com.mcc.service.impl;
 
 import com.mcc.domain.User;
 import com.mcc.repository.UserRepository;

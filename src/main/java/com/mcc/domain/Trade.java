@@ -20,12 +20,12 @@ public class Trade {
     /**
      * 交易来源/去向
      */
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false)
     private String tradeName;
     /**
      * 交易所属用户id
      */
-    @Column(nullable = false,unique = true)
+    @Column(nullable = false)
     private String userName;
     /**
      * 交易类型
@@ -37,6 +37,10 @@ public class Trade {
      */
     @Column(nullable = false)
     private String tradeDesc;
+
+    public Trade(){
+
+    }
 
     public Trade(Long tradeTime, Long tradeCoin, String tradeName, String userName, Integer tradeType, String tradeDesc) {
         this.tradeTime = tradeTime;

@@ -1,7 +1,7 @@
 package com.mcc;
 
 import com.mcc.domain.User;
-import com.mcc.service.UserServiceImpl;
+import com.mcc.service.impl.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
