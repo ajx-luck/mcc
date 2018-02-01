@@ -49,5 +49,6 @@ public class AuthorizeAspect {
             System.out.println("【登陆校验】Redis中查不到token");
             throw new AuthorizeException();
         }
+
     }
 }

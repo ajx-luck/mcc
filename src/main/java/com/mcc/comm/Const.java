@@ -13,7 +13,7 @@ public interface Const {
     //Redis_key
     String TOKEN_PREFIX = "token_%s";
 
-    Integer EXPIRE = 7200; //2小时
+    Integer EXPIRE = 60*60*24*30; //2小时
     //cookie
     String TOKEN = "token";
 
