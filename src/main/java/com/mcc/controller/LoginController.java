@@ -1,6 +1,11 @@
 package com.mcc.controller;
 
+import com.mcc.comm.Const;
 import com.mcc.domain.User;
+import com.mcc.service.UserService;
+import com.mcc.utils.CookieUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -10,16 +15,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by B04e on 2017/11/13.
  */
 @Controller
 public class LoginController {
-    User user = new User();
+    @Autowired
+    UserService mUserService;
+
+    @Autowired
+    private StringRedisTemplate mRedisTemplate;
+
     @RequestMapping("/login")
     public String login2(ModelMap map) {
-        map.addAttribute("user", user);
+        map.addAttribute("user", new User());
         return "login2";
     }
 
@@ -34,13 +47,22 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/loginIn",method = RequestMethod.POST)
-    public String loginIn(User user,ModelMap map){
-        if("admin".equals(user.getUserName()) && "123456".equals(user.getPassWord())){
-            return "index";
+    public String loginIn(User user, ModelMap map, HttpServletResponse response){
+        User userInfo = mUserService.findUserByUserNameAndPsd(user.getUserName(),user.getPassWord());
+        if(userInfo == null){
+            map.addAttribute("user",user);
+            map.addAttribute("msgError","账号密码不正确，请重试");
+            return "login2";
         }
-        map.addAttribute("user",user);
-        map.addAttribute("msgError","账号密码不正确，请重试");
-        return "login2";
+        //2. 设置token至redis
+        String token = UUID.randomUUID().toString();
+        Integer expire = Const.EXPIRE;
+
+        mRedisTemplate.opsForValue().set(String.format(Const.TOKEN_PREFIX, token), user.getUserName(), expire, TimeUnit.SECONDS);
+        //3. 设置token至cookie
+        CookieUtils.set(response, Const.TOKEN, token, expire);
+        return  "index";
+
     }
 
     @RequestMapping("/te")

@@ -18,8 +18,7 @@ import org.springframework.util.StringUtils;
 public class UserServiceImpl implements UserService{
     @Autowired
     UserRepository mUserRepository;
-    @Autowired
-    private StringRedisTemplate mRedisTemplate;
+
 
     /**
      * 创建用户

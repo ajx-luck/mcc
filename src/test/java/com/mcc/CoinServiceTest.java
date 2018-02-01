@@ -27,7 +27,7 @@ public class CoinServiceTest {
         String user1 = "hmm001";
         String user2 = "hmm002";
         try {
-            mCoinService.trade(user1,user2,1000000000L);
+            mCoinService.tradeByUserName(user1,user2,1000000000L);
         } catch (Exception e) {
             e.printStackTrace();
         }
