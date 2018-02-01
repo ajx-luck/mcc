@@ -3,7 +3,6 @@ package com.mcc;
 import com.mcc.domain.Machine;
 import com.mcc.repository.MachineRepository;
 import com.mcc.service.CoinService;
-import com.mcc.service.impl.CoinServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

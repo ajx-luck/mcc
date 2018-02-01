@@ -16,6 +16,9 @@ public class User {
     private Long id;
     @Column(nullable = false,unique = true)
     private String userName;
+    /**
+     * 明文保存，也许会有用
+     */
     @Column(nullable = true)
     private String passWord;
     @Column(nullable = false)
@@ -64,6 +67,15 @@ public class User {
      */
     @Column(nullable = false,unique = true)
     private String walletAddress;
+    /**
+     * 钱包私钥，跟地址唯一对应
+     */
+    private String walletKey;
+    /**
+     * 上一次的密码，明文保存，也许会有用
+     */
+    @Column(nullable = true)
+    private String prePassWord;
 
     public Long getId() {
         return id;
@@ -183,5 +195,21 @@ public class User {
 
     public void setWalletAddress(String walletAddress) {
         this.walletAddress = walletAddress;
+    }
+
+    public String getWalletKey() {
+        return walletKey;
+    }
+
+    public void setWalletKey(String walletKey) {
+        this.walletKey = walletKey;
+    }
+
+    public String getPrePassWord() {
+        return prePassWord;
+    }
+
+    public void setPrePassWord(String prePassWord) {
+        this.prePassWord = prePassWord;
     }
 }

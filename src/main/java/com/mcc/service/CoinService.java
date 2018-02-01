@@ -5,5 +5,8 @@ package com.mcc.service;
  */
 public interface CoinService {
     void addCoin();
-    void trade(String fromUser,String toUser,final long coin) throws Exception ;
+
+    void tradeByUserName(String fromUserName,String toUserName,final long coin) throws Exception ;
+
+    void tradeByWalletAddress(String fromUserWallet,String toUserWallet,final long coin) throws Exception ;
 }
