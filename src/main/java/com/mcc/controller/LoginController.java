@@ -4,6 +4,7 @@ import com.mcc.comm.Const;
 import com.mcc.domain.User;
 import com.mcc.service.UserService;
 import com.mcc.utils.CookieUtils;
+import com.mcc.utils.RandomValidateCodeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -49,7 +51,13 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/loginIn",method = RequestMethod.POST)
-    public String loginIn(User user, ModelMap map, HttpServletResponse response){
+    public String loginIn(User user, ModelMap map, HttpServletResponse response, HttpSession session){
+        String random = (String) session.getAttribute("RANDOMVALIDATECODEKEY");
+        if(user.getPrePassWord() == null || (!user.getPrePassWord().equals(random))){
+            map.addAttribute("user",user);
+            map.addAttribute("msgError","验证码不正确，请重试");
+            return "login2";
+        }
         User userInfo = mUserService.findUserByUserNameAndPsd(user.getUserName(),user.getPassWord());
         if(userInfo == null){
             map.addAttribute("user",user);
@@ -117,5 +125,18 @@ public class LoginController {
     @RequestMapping(value = "/goapplewx",method = RequestMethod.GET)
     public ResponseEntity deletewx(ModelMap map, HttpServletRequest request){
         return new ResponseEntity("%7b%22status%22%3a%22ok%22%2c%22ticket_url%22%3a%22weixin%3a%5c%2f%5c%2fdl%5c%2fbusiness%5c%2f%3fticket%3dt9f268ef06eac0070a397864ca054a577%23wechat_redirect%22%2c%22default_ticket_url%22%3a%22weixin%3a%5c%2f%5c%2fdl%5c%2fbusiness%5c%2f%3fticket%3dt9f268ef06eac0070a397864ca054a577%23wechat_redirect%22%7d", HttpStatus.OK);
+    }
+
+    @RequestMapping("/verify_code")
+    public void getVerify(HttpServletRequest request, HttpServletResponse response) {
+        try {
+            response.setContentType("image/jpeg");//设置相应类型,告诉浏览器输出的内容为图片
+            response.setHeader("Pragma", "No-cache");//设置响应头信息，告诉浏览器不要缓存此内容
+            response.setHeader("Cache-Control", "no-cache");
+            response.setDateHeader("Expire", 0);
+            RandomValidateCodeUtils.getRandcode(request, response);//输出验证码图片方法
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
