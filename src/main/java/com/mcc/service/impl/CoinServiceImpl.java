@@ -5,6 +5,7 @@ import com.mcc.comm.Const;
 import com.mcc.domain.Machine;
 import com.mcc.domain.Trade;
 import com.mcc.domain.User;
+import com.mcc.exception.TradeException;
 import com.mcc.repository.MachineRepository;
 import com.mcc.repository.TradeRepository;
 import com.mcc.repository.UserRepository;
@@ -108,7 +109,7 @@ public class CoinServiceImpl implements CoinService {
         long time = new Date().getTime();
         User user1 = mUserRepository.findUserByUserName(fromUser);
         User user2 = mUserRepository.findUserByUserName(toUser);
-        if (user1.getCoin() >= coin) {
+        if (user1.getCoin() >= coin && coin > 0) {
             Trade trade1 = new Trade(time, -coin, user2.getUserName(), user1.getUserName(), Const.TRADE, "正常交易");
             Trade trade2 = new Trade(time, coin, user1.getUserName(), user2.getUserName(), Const.TRADE, "正常交易");
             user1.setLastModifyTime(time);
@@ -120,13 +121,13 @@ public class CoinServiceImpl implements CoinService {
             mTradeRepository.save(trade1);
             mTradeRepository.save(trade2);
         } else {
-            throw new Exception("金额不足");
+            throw new TradeException();
         }
     }
 
     @Override
     public void tradeByWalletAddress(String fromUserWallet, String toUserWallet, long coin) throws Exception {
-
+        //todo:通过钱包地址交易
     }
 
 

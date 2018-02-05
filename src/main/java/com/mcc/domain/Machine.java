@@ -15,8 +15,14 @@ public class Machine {
     private Long id;
     @Column(nullable = false,unique = true)
     private String machineName;
+    /**
+     * 每天产出
+     */
     @Column(nullable = false)
     private Long outCoin;
+    /**
+     * 价格
+     */
     @Column(nullable = false)
     private Long price;
     @Column(nullable = false)

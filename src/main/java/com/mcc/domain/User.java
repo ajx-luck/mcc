@@ -76,6 +76,11 @@ public class User {
      */
     @Column(nullable = true)
     private String prePassWord;
+    /**
+     * 登陆的tonken
+     */
+    @Column(nullable = false)
+    private String tonken;
 
     public Long getId() {
         return id;
@@ -211,5 +216,13 @@ public class User {
 
     public void setPrePassWord(String prePassWord) {
         this.prePassWord = prePassWord;
+    }
+
+    public String getTonken() {
+        return tonken;
+    }
+
+    public void setTonken(String tonken) {
+        this.tonken = tonken;
     }
 }
