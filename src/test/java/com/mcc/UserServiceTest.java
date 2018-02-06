@@ -22,7 +22,7 @@ public class UserServiceTest {
     @Test
     public void createUserTest(){
         User user = new User();
-        user.setUserName("hmm008");
+        user.setUserName("hmm004");
         user.setPassWord("ax123456");
         user.setCoin(100000000L);
         user.setGrade(1);
@@ -33,7 +33,7 @@ public class UserServiceTest {
         user.setProfilePicture("default");
         user.setMachineId(1L);
         user.setPhone("188");
-        user.setTopUserName("hmm001");
+        user.setTopUserName("hmm002");
         user.setReferrerCoin(0L);
         user.setTonken("1");
         mUserService.createUser(user);
