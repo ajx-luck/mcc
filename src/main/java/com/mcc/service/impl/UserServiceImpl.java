@@ -6,6 +6,7 @@ import com.mcc.exception.CreateUserException;
 import com.mcc.repository.MachineRepository;
 import com.mcc.repository.UserRepository;
 import com.mcc.service.UserService;
+import com.mcc.utils.AwardUtils;
 import com.mcc.utils.CommonUtils;
 import com.mcc.utils.SymmetricEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ import org.springframework.util.StringUtils;
  * Created by B04e on 2018/1/24.
  */
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository mUserRepository;
     @Autowired
@@ -26,22 +27,26 @@ public class UserServiceImpl implements UserService{
 
     /**
      * 创建用户
+     *
      * @param user
      */
     @Transactional(value = "transactionManager", rollbackFor = Exception.class)
     @Override
-    public void createUser(User user){
+    public void createUser(User user) {
         String topUserName = user.getTopUserName();
         User user1 = mUserRepository.findUserByUserName(topUserName);
         long price = mMachineRepository.findOne(user.getMachineId()).getPrice();
-        if(user1.getCoin() >= price){
+        if (user1.getCoin() >= price) {
             user.setAliveDay(365);
             user.setWalletAddress(CommonUtils.getMD5(user.getUserName() + user.getPhone() + user.getEmail()));
             user.setWalletKey(SymmetricEncoder.AESEncode(Const.ENCODER_KEY, user.getWalletAddress()));
             mUserRepository.save(user);
             user1.setCoin(user1.getCoin() - price);
+            user1.setCoin(user1.getCoin() + AwardUtils.getRecommendAward(price, user1.getReferrerCoin()));
+            user1.setReferrerCoin(user1.getReferrerCoin() + price);
+            user.setTonken("1");
             mUserRepository.save(user1);
-        }else{
+        } else {
             throw new CreateUserException();
         }
 
@@ -50,38 +55,40 @@ public class UserServiceImpl implements UserService{
 
     /**
      * 用户登录
+     *
      * @param userName
      * @param password
      * @return
      */
     @Override
-    public User findUserByUserNameAndPsd(String userName,String password){
-        if(StringUtils.isEmpty(userName) || StringUtils.isEmpty(password)){
+    public User findUserByUserNameAndPsd(String userName, String password) {
+        if (StringUtils.isEmpty(userName) || StringUtils.isEmpty(password)) {
             return null;
-        }else{
+        } else {
             return mUserRepository.findUserByUserNameAndPassWord(userName, password);
         }
     }
 
     /**
      * 根据钱包查询User
+     *
      * @param walletAddress
      * @return
      */
     @Override
     public User findUserByWalletAddress(String walletAddress) {
-        if(StringUtils.isEmpty(walletAddress) || StringUtils.isEmpty(walletAddress)){
+        if (StringUtils.isEmpty(walletAddress) || StringUtils.isEmpty(walletAddress)) {
             return null;
-        }else{
+        } else {
             return mUserRepository.findUserByWalletAddress(walletAddress);
         }
     }
 
     @Override
     public User findUserByUserName(String userName) {
-        if(StringUtils.isEmpty(userName)){
+        if (StringUtils.isEmpty(userName)) {
             return null;
-        }else{
+        } else {
             return mUserRepository.findUserByUserName(userName);
         }
     }

@@ -22,9 +22,9 @@ public class UserServiceTest {
     @Test
     public void createUserTest(){
         User user = new User();
-        user.setUserName("hmm002");
+        user.setUserName("hmm008");
         user.setPassWord("ax123456");
-        user.setCoin(1000000000L);
+        user.setCoin(100000000L);
         user.setGrade(1);
         user.setEmail("54678255@qq.com");
         long time = new Date().getTime();
@@ -35,6 +35,7 @@ public class UserServiceTest {
         user.setPhone("188");
         user.setTopUserName("hmm001");
         user.setReferrerCoin(0L);
+        user.setTonken("1");
         mUserService.createUser(user);
     }
 

@@ -79,7 +79,7 @@ public class User {
     /**
      * 登陆的tonken
      */
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String tonken;
 
     public Long getId() {
