@@ -1,7 +1,8 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
     矿机平台 - MCC
 </title>
@@ -66,11 +67,11 @@
         </div>
         <div class="userinfo">
             <div class="ava">
-                <img src="../images/group_2.png" id="avatar" class="avatar" />
+                <img th:src="${user.profilePicture}" id="avatar" class="avatar" />
                 <input type="file" name="ctl00$uploadAvatar" id="ctl00_uploadAvatar" style="display:none;" />
                 <input type="submit" name="ctl00$btnAvatar" value="更换头像" id="ctl00_btnAvatar" style="display:none;" />
             </div>
-            <div class="nickname">
+            <div class="nickname" th:text="${user.userName}">
                 饶桂连520
             </div>
             <div class="level">
@@ -131,7 +132,7 @@
             <div class="usercenter">
                 <div class="money">
                     <div class="money1">
-                        <div class="m1">4.897000</div>
+                        <div class="m1" th:text="${coin}">4.897000</div>
                         <div class="m2">账户余额（币）</div>
                     </div>
                     <div class="money2">

@@ -27,7 +27,7 @@ public class AuthorizeAspect {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
-    @Pointcut("execution(public * com.mcc.controller.TradeController.*(..))" +
+    @Pointcut("execution(public * com.mcc.controller.*.*(..))"+
             "&& !execution(public * com.mcc.controller.LoginController.*(..))")
     public void verify(){}
 

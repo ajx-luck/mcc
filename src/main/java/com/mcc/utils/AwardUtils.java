@@ -11,7 +11,7 @@ public class AwardUtils {
     static Long GRADE_ONE = 400 * UNIT;
     static Long GRADE_TWO = 1200 * UNIT;
     static Long GRADE_THREE = 3000 * UNIT;
-    static Long PRECENT_BASE = 10L;
+    static Long PRECENT_BASE = 15L;
     static Long PRECENT_ONE = 3L;
     static Long PRECENT_TWO = 3L;
     static Long PRECENT_THREE = 3L;
