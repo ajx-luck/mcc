@@ -14,8 +14,12 @@ public interface Const {
     String TOKEN_PREFIX = "token_%s";
 
     Integer EXPIRE = 60*60*24*30; //2小时
-    //cookie
+    //cookie 登陆信息
     String TOKEN = "token";
 
+    //用户名
+    String USERNAME = "username";
 
+    //等级
+    String GRADE = "grade";
 }

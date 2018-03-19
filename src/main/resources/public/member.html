@@ -1,0 +1,155 @@
+
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+    矿机平台 - MCC
+</title>
+    <link href="/css/main.css" rel="stylesheet" />
+    <script src="/js/jquery.min.js"></script>
+    <script tsrc="/js/main.js}"></script>
+    <script type="text/javascript">
+        $(function () {
+            resize();
+            $(window).resize(function () {
+                resize();
+            })
+
+        })
+
+        function resize() {
+            var height = $(document).height();// - $(".header").height();
+            //$(".right").height(height);
+            $(".left").css("min-height", height);
+            //$(".right .iframe").css("min-height",height);
+            $(".right").css("min-height", height);
+        }
+
+
+
+    </script>
+
+
+    <style type="text/css">
+        .frame .left .nav ul li.icon_nav_1 {
+            background-color: #FF6600;
+        }
+    </style>
+
+
+
+    <link href="/css/pagination.css" rel="stylesheet" />
+</head>
+<body class="frame">
+<form name="aspnetForm" method="post" action="" id="aspnetForm" enctype="multipart/form-data">
+    <div>
+        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTI5OTc0NTk3Mw9kFgJmD2QWAgIDDxYCHgdlbmN0eXBlBRNtdWx0aXBhcnQvZm9ybS1kYXRhFgICAg9kFgQCAQ8WAh4LXyFJdGVtQ291bnQCBRYKZg9kFgJmDxUDAzExNRVNQ0Pnp5/nlKjnpKbmqZ/pgJrnn6UKMjAxNy8xMC8yMWQCAQ9kFgJmDxUDAzExNA9NQ0Poqr/lg7npgJrnn6UKMjAxNy8xMC8xOWQCAg9kFgJmDxUDAzExMwlNQ0PpgJrnn6UJMjAxNy8xMC8zZAIDD2QWAmYPFQMDMTEyFU1DQ+iPsuW+i+izk+S6pOa1geacgwkyMDE3LzkvMjNkAgQPZBYCZg8VAwMxMTEPTUND5Lit5Zu956S+5Yy6CTIwMTcvOS8xNWQCAw8WAh4JaW5uZXJodG1sZWRkcpp9+hBGrrDFUMu/sVbLIRK8P2ROrilLN/3+UR8J2yA=" />
+    </div>
+
+    <div>
+
+        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA8C29DA" />
+        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAI07xDqdlRQY/WHgOOjjRdRqxNPHKo4ytIuS0dM10XyNtjAcGO4TwdRa8NKsoEL6KKwGs4udE0GKY7CTtejGHjU" />
+    </div>
+
+
+    <div class="left" >
+
+        <div class="logo">
+            <img src="/images/logo.png" />
+        </div>
+        <div class="userinfo">
+            <div class="ava">
+                <img src="/images/group_2.png" id="avatar" class="avatar" />
+                <input type="file" name="ctl00$uploadAvatar" id="ctl00_uploadAvatar" style="display:none;" />
+                <input type="submit" name="ctl00$btnAvatar" value="更换头像" id="ctl00_btnAvatar" style="display:none;" />
+            </div>
+            <div class="nickname">
+                饶桂连520
+            </div>
+            <div class="level">
+                矿机状态：
+                已激活
+
+
+
+            </div>
+        </div>
+
+        <div class="nav">
+            <ul>
+                <li class="icon_nav_1">
+                    <a href="member.aspx">矿机管理</a>
+                </li>
+
+                <li class="icon_nav_3">
+                    <a href="trading.aspx">财务中心</a>
+                </li>
+                <li class="icon_nav_4">
+                    <a href="userinfo.aspx?action=edit">我的资料</a>
+                </li>
+                <li class="icon_nav_5">
+                    <a href="download.aspx">电子钱包</a>
+                </li>
+                <li class="icon_nav_6">
+                    <a href="news.aspx">矿协通知</a>
+                </li>
+                <li class="icon_nav_7">
+                    <a href="gif.aspx">算力中心</a>
+                </li>
+
+            </ul>
+            <div style="text-align:center; margin:10px; color:white;">
+                客服邮箱：<a href="mailto:info@mcccloud.com">info@mcccloud.com</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="right rightbg">
+        <div class="header" >
+
+            <div class="backhome">
+                <a href="/usercenter">返回首页</a>
+            </div>
+            <div class="exit">
+                <a href="/logout">安全退出</a>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="iframe">
+
+            <div class="bigtitle">
+                <span>矿机架构</span>
+            </div>
+
+            <div class="member_nav">
+                <a href="/userinfo" class="member_nav1">注册矿机</a>
+                <a href="/member" class="member_nav2">矿机架构</a>
+                <a href="/myaccount" class="member_nav3">关联矿机</a>
+            </div>
+
+            <div class="member">
+                <div class="member2">
+
+
+                </div>
+                <div class="member2 member100" style="margin-left:15px; padding:25px;">
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="clear">
+    </div>
+</form>
+</body>
+</html>

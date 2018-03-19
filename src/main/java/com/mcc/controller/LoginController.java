@@ -71,6 +71,8 @@ public class LoginController {
         mRedisTemplate.opsForValue().set(String.format(Const.TOKEN_PREFIX, token), user.getUserName(), expire, TimeUnit.SECONDS);
         //3. 设置token至cookie
         CookieUtils.set(response, Const.TOKEN, token, expire);
+        CookieUtils.set(response,Const.USERNAME,userInfo.getUserName(),expire);
+        CookieUtils.set(response,Const.GRADE,userInfo.getGrade()+"",expire);
         return  "redirect:/usercenter";
 
     }
