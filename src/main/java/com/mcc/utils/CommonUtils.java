@@ -1,6 +1,8 @@
 package com.mcc.utils;
 
 
+import org.thymeleaf.util.StringUtils;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 
@@ -27,4 +29,7 @@ public class CommonUtils {
     public static String fillMD5(String md5){
         return md5.length()==32?md5:fillMD5("0"+md5);
     }
+
+
+
 }

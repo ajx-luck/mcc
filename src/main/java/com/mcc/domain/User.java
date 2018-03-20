@@ -87,6 +87,10 @@ public class User {
      */
     @Column(nullable = true)
     private String tonken;
+    /**
+     * 关联ids,可以存在多个，用','作分割
+     */
+    private String contactIds;
 
     public Long getId() {
         return id;
@@ -238,5 +242,13 @@ public class User {
 
     public void setPayWord(String payWord) {
         this.payWord = payWord;
+    }
+
+    public String getContactIds() {
+        return contactIds;
+    }
+
+    public void setContactIds(String contactIds) {
+        this.contactIds = contactIds;
     }
 }
