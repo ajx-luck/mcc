@@ -21,6 +21,11 @@ public class User {
      */
     @Column(nullable = true)
     private String passWord;
+    /**
+     * 支付密码
+     */
+    @Column(nullable = false)
+    private String payWord;
     @Column(nullable = false)
     private String email;
     @Column(nullable = true)
@@ -70,6 +75,7 @@ public class User {
     /**
      * 钱包私钥，跟地址唯一对应
      */
+    @Column(nullable = true)
     private String walletKey;
     /**
      * 上一次的密码，明文保存，也许会有用
@@ -224,5 +230,13 @@ public class User {
 
     public void setTonken(String tonken) {
         this.tonken = tonken;
+    }
+
+    public String getPayWord() {
+        return payWord;
+    }
+
+    public void setPayWord(String payWord) {
+        this.payWord = payWord;
     }
 }
