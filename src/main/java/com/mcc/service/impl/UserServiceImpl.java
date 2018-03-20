@@ -134,5 +134,10 @@ public class UserServiceImpl implements UserService {
         return mUserRepository.findUsersByIdIn(ids);
     }
 
+    @Override
+    public List<User> getTopUser(String topUserName) {
+        return mUserRepository.findUsersByTopUserName(topUserName);
+    }
+
 
 }

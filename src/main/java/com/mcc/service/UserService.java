@@ -42,4 +42,11 @@ public interface UserService {
      * @return
      */
     List<User> getAllContacts(User user);
+
+    /**
+     * 获取推荐的用户
+     * @param topUserName
+     * @return
+     */
+    List<User> getTopUser(String topUserName);
 }

@@ -70,4 +70,10 @@ public class UserServiceTest {
         User changeUser = mUserService.changeUserByContactId(user,2L);
         assert (changeUser != null);
     }
+
+    @Test
+    public void testGetTopUser(){
+        List<User> lists = mUserService.getTopUser("hmm001");
+        assert (lists != null);
+    }
 }
