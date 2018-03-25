@@ -6,6 +6,7 @@
     矿机平台 - MCC
 </title>
     <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico"/>
     <script src="../js/jquery.min.js"></script>
     <script th:src="@{/js/main.js}"></script>
     <script type="text/javascript">
@@ -21,9 +22,12 @@
 
 
 
+
         })
 
         function resize() {
+            var height = $(document).height();// - $(".header").height();
+            //$(".right").height(height);
             $(".left").css("min-height", height);
             //$(".right .iframe").css("min-height",height);
             $(".right").css("min-height", height);

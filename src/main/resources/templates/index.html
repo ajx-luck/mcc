@@ -7,6 +7,7 @@
     矿机平台 - MCC
 </title>
     <link href="../css/main.css?guid=fc4728b06a8c477180bb263c010ce276" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico"/>
     <script src="../js/jquery.min.js"></script>
     <script src="../js/main.js?guid=6652ccb6ac784acaaa67ac92e3bc68f7"></script>
     <script type="text/javascript">
@@ -60,7 +61,7 @@
     </div>
 
 
-    <div class="left">
+    <div class="left" th:replace="layout :: left">
 
         <div class="logo">
             <img src="../images/logo.png" />
@@ -99,7 +100,7 @@
                     <a href="download.aspx">电子钱包</a>
                 </li>
                 <li class="icon_nav_6">
-                    <a href="news.aspx">矿协通知</a>
+                    <a href="/news">矿协通知</a>
                 </li>
                 <li class="icon_nav_6">
                     <a href="gif.aspx">算力中心</a>
@@ -116,13 +117,13 @@
         <div class="header">
 
             <div class="backhome">
-                <a href="/usercenter.aspx">返回首页</a>
+                <a href="/usercenter">返回首页</a>
             </div>
             <div class="exit">
-                <a href="/login.aspx?action=exit">安全退出</a>
+                <a href="/logout">安全退出</a>
             </div>
             <div class="guid">
-                UID：<span>9541b5ec426643e5a4db20828f1027ed</span>
+                UID：<span th:text="${user.walletAddress}">9541b5ec426643e5a4db20828f1027ed</span>
             </div>
             <div class="clear"></div>
         </div>
@@ -136,7 +137,7 @@
                         <div class="m2">账户余额（币）</div>
                     </div>
                     <div class="money2">
-                        <div class="m1">0.000000</div>
+                        <div class="m1" th:text="${refcoin}">0.000000</div>
                         <div class="m2">动态收益（币）</div>
                     </div>
                     <div class="money3">
@@ -261,7 +262,7 @@
                         </div>
                         <div class="img day">
                             <img src="../images/day.png" />
-                            <span class="leftday">353</span>
+                            <span class="leftday" th:text="${user.aliveDay}">353</span>
                         </div>
                         <div class="suanli">
                             <img src="../images/suanli.png" /><br />

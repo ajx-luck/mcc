@@ -90,10 +90,7 @@ public class LoginController {
         return "test";
     }
 
-    @RequestMapping("/news")
-    public String news(ModelMap map){
-        return "news";
-    }
+
 
     @RequestMapping("/home")
     public String layout(ModelMap map){
@@ -101,10 +98,7 @@ public class LoginController {
         return "layout";
     }
 
-    @RequestMapping("/map")
-    public String map(ModelMap map){
-        return "map";
-    }
+
 
     @RequestMapping(value="/hello")
     public String hello(ModelMap map){
