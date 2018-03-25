@@ -8,12 +8,16 @@ import com.mcc.repository.UserRepository;
 import com.mcc.service.UserService;
 import com.mcc.utils.AwardUtils;
 import com.mcc.utils.CommonUtils;
+import com.mcc.utils.StringUtils;
 import com.mcc.utils.SymmetricEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by B04e on 2018/1/24.
@@ -100,5 +104,40 @@ public class UserServiceImpl implements UserService {
         mUserRepository.save(user);
         return user;
     }
+
+    @Override
+    public User addContactAccount(User user, String userName, String psd, String payPsd) {
+        User contactUser = mUserRepository.findUserByUserName(userName);
+        if(contactUser != null && contactUser.getPassWord().equals(psd) && contactUser.getPayWord().equals(payPsd)){
+            contactUser.setContactIds(StringUtils.addContactIds(contactUser.getContactIds(),user.getId()+""));
+            user.setContactIds(StringUtils.addContactIds(user.getContactIds(),contactUser.getId()+""));
+            mUserRepository.save(user);
+            mUserRepository.save(contactUser);
+            return user;
+        }else{
+            return null;
+        }
+    }
+
+    @Override
+    public User changeUserByContactId(User user,Long id) {
+        if(user.getContactIds().contains(id+"")){
+            return mUserRepository.findUserById(id);
+        }
+        return null;
+    }
+
+    @Override
+    public List<User> getAllContacts(User user) {
+        List<Long> ids = Arrays.asList(user.getContactIds().split(",")).stream().map(s -> Long.parseLong(s.trim()))
+                .collect(Collectors.toList());
+        return mUserRepository.findUsersByIdIn(ids);
+    }
+
+    @Override
+    public List<User> getTopUser(String topUserName) {
+        return mUserRepository.findUsersByTopUserName(topUserName);
+    }
+
 
 }

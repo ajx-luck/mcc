@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by B04e on 2018/1/25.
@@ -44,5 +45,35 @@ public class UserServiceTest {
         String userName = "hmm001";
         String password = "ax123456";
         assert (null != mUserService.findUserByUserNameAndPsd(userName,password));
+    }
+
+    @Test
+    public void testAddContactAccount(){
+        User user = mUserService.findUserByUserName("hmm001");
+        mUserService.addContactAccount(user,"hmm002","ax123456","aa123456");
+        mUserService.addContactAccount(user,"hmm003","ax123456","aa123456");
+        mUserService.addContactAccount(user,"hmm004","ax123456","aa123456");
+        mUserService.addContactAccount(user,"hmm005","ax123456","aa123456");
+        mUserService.addContactAccount(user,"hmm006","ax123456","aa123456");
+    }
+
+    @Test
+    public void testGetAllContacts(){
+        User user = mUserService.findUserByUserName("hmm001");
+        List<User> users = mUserService.getAllContacts(user);
+        assert (users!=null);
+    }
+
+    @Test
+    public void testChangeUserByContactId(){
+        User user = mUserService.findUserByUserName("hmm001");
+        User changeUser = mUserService.changeUserByContactId(user,2L);
+        assert (changeUser != null);
+    }
+
+    @Test
+    public void testGetTopUser(){
+        List<User> lists = mUserService.getTopUser("hmm001");
+        assert (lists != null);
     }
 }
