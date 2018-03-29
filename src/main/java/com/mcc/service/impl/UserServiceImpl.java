@@ -6,14 +6,16 @@ import com.mcc.exception.CreateUserException;
 import com.mcc.repository.MachineRepository;
 import com.mcc.repository.UserRepository;
 import com.mcc.service.UserService;
-import com.mcc.utils.AwardUtils;
-import com.mcc.utils.CommonUtils;
-import com.mcc.utils.StringUtils;
-import com.mcc.utils.SymmetricEncoder;
+import com.mcc.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import redis.clients.jedis.Jedis;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -28,6 +30,8 @@ public class UserServiceImpl implements UserService {
     UserRepository mUserRepository;
     @Autowired
     MachineRepository mMachineRepository;
+    @Autowired
+    private StringRedisTemplate redisTemplate;
 
     /**
      * 创建用户
@@ -93,7 +97,12 @@ public class UserServiceImpl implements UserService {
         if (StringUtils.isEmpty(userName)) {
             return null;
         } else {
-            return mUserRepository.findUserByUserName(userName);
+            User user = RedisClient.get(userName,User.class);
+            if(user == null){
+                user = mUserRepository.findUserByUserName(userName);
+                RedisClient.set(userName,user);
+            }
+            return user;
         }
     }
 
@@ -137,6 +146,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getTopUser(String topUserName) {
         return mUserRepository.findUsersByTopUserName(topUserName);
+    }
+
+    @Override
+    public User findUserByCookie(HttpServletRequest request) {
+        Cookie cookie = CookieUtils.get(request, Const.TOKEN);
+        String name = redisTemplate.opsForValue().get(String.format(Const.TOKEN_PREFIX,cookie.getValue()));
+        return findUserByUserName(name);
     }
 
 

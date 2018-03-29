@@ -2,6 +2,7 @@ package com.mcc.aspect;
 
 import com.mcc.comm.Const;
 import com.mcc.exception.AuthorizeException;
+import com.mcc.service.UserService;
 import com.mcc.utils.CookieUtils;
 import groovy.util.logging.Slf4j;
 import org.aspectj.lang.annotation.Aspect;
@@ -26,6 +27,8 @@ import javax.servlet.http.HttpServletRequest;
 public class AuthorizeAspect {
     @Autowired
     private StringRedisTemplate redisTemplate;
+    @Autowired
+    private UserService mUserService;
 
     @Pointcut("execution(public * com.mcc.controller.*.*(..))"+
             "&& !execution(public * com.mcc.controller.LoginController.*(..))")
@@ -39,15 +42,19 @@ public class AuthorizeAspect {
         //查询cookie
         Cookie cookie = CookieUtils.get(request, Const.TOKEN);
         if(cookie == null){
-            System.out.println("【登陆校验】Cookie中查不到token");
+//            System.out.println("【登陆校验】Cookie中查不到token");
             throw new AuthorizeException();
         }
 
         //从Redis中查询
         String tokenValue = redisTemplate.opsForValue().get(String.format(Const.TOKEN_PREFIX,cookie.getValue()));
         if(StringUtils.isEmpty(tokenValue)){
-            System.out.println("【登陆校验】Redis中查不到token");
+//            System.out.println("【登陆校验】Redis中查不到token");
             throw new AuthorizeException();
+        }else {
+            if(mUserService.findUserByUserName(tokenValue) == null){
+                throw new AuthorizeException();
+            }
         }
 
     }

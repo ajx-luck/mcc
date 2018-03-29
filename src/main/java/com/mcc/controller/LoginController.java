@@ -77,6 +77,11 @@ public class LoginController {
 
     }
 
+    @RequestMapping("/")
+    public String index(ModelMap map) {
+        return  "redirect:/usercenter";
+    }
+
     @RequestMapping("/logout")
     public ModelAndView logout(ModelMap map,HttpServletRequest request, HttpServletResponse response){
         Cookie cookie = CookieUtils.get(request, Const.TOKEN);

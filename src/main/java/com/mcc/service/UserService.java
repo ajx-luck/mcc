@@ -2,6 +2,7 @@ package com.mcc.service;
 
 import com.mcc.domain.User;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -49,4 +50,11 @@ public interface UserService {
      * @return
      */
     List<User> getTopUser(String topUserName);
+
+    /**
+     * 根据cookie获取user对象
+     * @param request
+     * @return
+     */
+    User findUserByCookie(HttpServletRequest request);
 }

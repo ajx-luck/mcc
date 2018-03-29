@@ -23,4 +23,5 @@ public class AuthorizeExceptionHandler {
 //                .concat(projectUrlConfig.getSell())
 //                .concat("/sell/seller/login"));
     }
+
 }

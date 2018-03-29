@@ -4,13 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by B04e on 2017/11/13.
  */
 @Entity
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue
     private Long id;

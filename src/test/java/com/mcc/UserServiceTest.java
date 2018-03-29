@@ -31,7 +31,7 @@ public class UserServiceTest {
         long time = new Date().getTime();
         user.setCreateTime(time);
         user.setLastModifyTime(time);
-        user.setProfilePicture("default");
+        user.setProfilePicture("../images/group_3.png");
         user.setMachineId(1L);
         user.setPhone("188");
         user.setTopUserName("hmm002");

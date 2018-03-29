@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by B04e on 2018/2/7.
@@ -26,58 +27,49 @@ public class UserController {
     @Autowired
     private StringRedisTemplate mRedisTemplate;
 
+
     @RequestMapping("/usercenter")
-    public String userCenter(ModelMap map, HttpServletRequest request){
-        Cookie cookie = CookieUtils.get(request, Const.TOKEN);
-        String tokenValue = mRedisTemplate.opsForValue().get(String.format(Const.TOKEN_PREFIX,cookie.getValue()));
-        User user = mUserService.findUserByUserName(tokenValue);
-        if(user != null){
-            map.addAttribute("user",user);
-            map.addAttribute("coin", FormatUtils.showCoin(user.getCoin()));
-            map.addAttribute("refcoin",FormatUtils.showCoin(AwardUtils.getRecommendAward(user.getReferrerCoin(),0)));
-            return "index";
-        }else{
-            return "redirect:/login";
-        }
+    public String userCenter(ModelMap map, HttpServletRequest request) {
+        User user = mUserService.findUserByCookie(request);
+        map.addAttribute("user", user);
+        map.addAttribute("coin", FormatUtils.showCoin(user.getCoin()));
+        map.addAttribute("refcoin", FormatUtils.showCoin(AwardUtils.getRecommendAward(user.getReferrerCoin(), 0)));
+        return "index";
+
     }
 
     @RequestMapping("/news")
-    public String news(ModelMap map, HttpServletRequest request){
-        Cookie cookie = CookieUtils.get(request, Const.TOKEN);
-        String tokenValue = mRedisTemplate.opsForValue().get(String.format(Const.TOKEN_PREFIX,cookie.getValue()));
-        User user = mUserService.findUserByUserName(tokenValue);
-        if(user != null){
-            map.addAttribute("user",user);
-            return "news";
-        }else{
-            return "redirect:/login";
-        }
+    public String news(ModelMap map, HttpServletRequest request) {
+        User user = mUserService.findUserByCookie(request);
+        map.addAttribute("user", user);
+        return "news";
+
     }
 
     @RequestMapping("/map")
-    public String map(ModelMap map, HttpServletRequest request){
-        Cookie cookie = CookieUtils.get(request, Const.TOKEN);
-        String tokenValue = mRedisTemplate.opsForValue().get(String.format(Const.TOKEN_PREFIX,cookie.getValue()));
-        User user = mUserService.findUserByUserName(tokenValue);
-        if(user != null){
-            map.addAttribute("user",user);
-            return "map";
-        }else{
-            return "redirect:/login";
-        }
+    public String map(ModelMap map, HttpServletRequest request) {
+        User user = mUserService.findUserByCookie(request);
+        map.addAttribute("user", user);
+        return "map";
+
     }
 
     @RequestMapping("/download")
-    public String download(ModelMap map, HttpServletRequest request){
-        Cookie cookie = CookieUtils.get(request, Const.TOKEN);
-        String tokenValue = mRedisTemplate.opsForValue().get(String.format(Const.TOKEN_PREFIX,cookie.getValue()));
-        User user = mUserService.findUserByUserName(tokenValue);
-        if(user != null){
-            map.addAttribute("user",user);
-            return "download";
-        }else{
-            return "redirect:/login";
-        }
+    public String download(ModelMap map, HttpServletRequest request) {
+        User user = mUserService.findUserByCookie(request);
+        map.addAttribute("user", user);
+        return "download";
+
+    }
+
+    @RequestMapping("/member")
+    public String member(ModelMap map, HttpServletRequest request) {
+        User user = mUserService.findUserByCookie(request);
+        List<User> contacts = mUserService.getAllContacts(user);
+        map.addAttribute("user", user);
+        map.addAttribute("contacts",contacts);
+        return "member";
+
     }
 
 }
