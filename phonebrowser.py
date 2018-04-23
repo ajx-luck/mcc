@@ -1,6 +1,6 @@
 # coding=utf-8
 
-import requests
+# import requests
 import sys
 import queue
 import threading
@@ -28,7 +28,7 @@ headers1 = [('Host','baidu.com'),('Connection','keep-alive'),( 'Cache-Control','
             ('DNT','1'),('Accept-Language', 'zh-CN,zh;q=0.8,ja;q=0.6')
             ]
 
-proxy = {'https': '223.241.118.173:8010'}
+proxy = {'https': '60.177.225.223:18118'}
 
 class baiduSpider(threading.Thread):
     def __init__(self, q, name):
@@ -46,29 +46,29 @@ class baiduSpider(threading.Thread):
                 pass
                 # 一定要异常处理！！！不然中途会停下，爬取的内容就不完整了！！！
 
-    def get_url(self, url):
-        r = requests.get(url=url, headers=headers)
-        soup = bs(r.content, "html.parser")
-        urls = soup.find_all(name='a', attrs={'href': re.compile(('.'))})
-        #        for i in urls:
-        #            print i
-
-        # 抓取百度搜索结果中的a标签，其中href是包含了百度的跳转地址
-
-        for i in urls:
-            if 'www.baidu.com/link?url=' in i['href']:
-                a = requests.get(url=i['href'], headers=headers)
-
-                # 对跳转地址进行一次访问，返回访问的url就能得到我们需要抓取的url结果了
-
-                # if a.status_code == 200:
-                # print a.url
-
-                with open('D:/url/' + self._name + '.txt') as f:
-                    if a.url not in f.read():
-                        f = open('D:/url/' + self._name + '.txt', 'a')
-                        f.write(a.url + '\n')
-                        f.close()
+    # def get_url(self, url):
+    #     r = requests.get(url=url, headers=headers)
+    #     soup = bs(r.content, "html.parser")
+    #     urls = soup.find_all(name='a', attrs={'href': re.compile(('.'))})
+    #     #        for i in urls:
+    #     #            print i
+    #
+    #     # 抓取百度搜索结果中的a标签，其中href是包含了百度的跳转地址
+    #
+    #     for i in urls:
+    #         if 'www.baidu.com/link?url=' in i['href']:
+    #             a = requests.get(url=i['href'], headers=headers)
+    #
+    #             # 对跳转地址进行一次访问，返回访问的url就能得到我们需要抓取的url结果了
+    #
+    #             # if a.status_code == 200:
+    #             # print a.url
+    #
+    #             with open('D:/url/' + self._name + '.txt') as f:
+    #                 if a.url not in f.read():
+    #                     f = open('D:/url/' + self._name + '.txt', 'a')
+    #                     f.write(a.url + '\n')
+    #                     f.close()
 
     def getProxyUrl(self,url):
         proxy_support = request.ProxyHandler(proxy)
@@ -80,28 +80,51 @@ class baiduSpider(threading.Thread):
         response = opener.open(url)
         # 读取相应信息并解码
         html = response.read().decode("utf-8")
-        soup = bs(html, "html.parser")
-        urls = soup.find_all(name='a', attrs={'href': re.compile(('.'))})
+        with open('D:/url/' + self._name + '.html',encoding="utf_16") as f:
+            f = open('D:/url/' + self._name + '.txt', 'a',encoding="utf_16")
+            f.write(html)
+            f.close()
+        # soup = bs(html, "html.parser")
+        # urls = soup.find_all(name='a', attrs={'href': re.compile(('.'))})
         #        for i in urls:
         #            print i
 
         # 抓取百度搜索结果中的a标签，其中href是包含了百度的跳转地址
 
-        for i in urls:
-            if 'www.baidu.com/link?url=' in i['href']:
-                a = requests.get(url=i['href'], headers=headers)
+        # for i in urls:
+        #     ul = i['href']
+        #     a = opener.open(ul)
+        #     with open('D:/url/' + self._name + '.txt') as f:
+        #                     if a.url not in f.read():
+        #                         f = open('D:/url/' + self._name + '.txt', 'a')
+        #                         f.write(ul + '\n')
+        #                         f.write(a.url + '\n')
+        #                         f.write('\n')
+        #                         f.close()
+        #                         time.sleep(1)
+            # print(i)
+            # if 'c-blocka' in i['class']:
+            #     print(ul)
+            #     if 'rw-item' not in i['class'] :
+            #         if 'hint-toprq-item' not in i['class']:
+            #                 if 'wa-sigma-celebrity-rela-link' not in i['class']:
+            #                         ul = i['href']
+            #                         print(ul)
+                # if 'ssid' in ul:
+                #     a = opener.open(ul)
+                    # a = requests.get(url=i['href'], headers=headers)
 
-                # 对跳转地址进行一次访问，返回访问的url就能得到我们需要抓取的url结果了
-
-                # if a.status_code == 200:
-                # print a.url
-
-                with open('D:/url/' + self._name + '.txt') as f:
-                    if a.url not in f.read():
-                        f = open('D:/url/' + self._name + '.txt', 'a')
-                        f.write(a.url + '\n')
-                        f.close()
-                time.sleep(1)
+                    # 对跳转地址进行一次访问，返回访问的url就能得到我们需要抓取的url结果了
+                    # print (a.status_code)
+                    # if a.status_code == 200:
+                    #     print (a.url)
+                    #
+                    #     with open('D:/url/' + self._name + '.txt') as f:
+                    #         if a.url not in f.read():
+                    #             f = open('D:/url/' + self._name + '.txt', 'a')
+                    #             f.write(ul + '\n')
+                    #             f.close()
+                    #     time.sleep(1)
 
 
 def readkeyword():
@@ -115,11 +138,11 @@ def readkeyword():
 def main(keyword):
     name = keyword
 
-    f = open('D:/url/' + name + '.txt', 'w')
+    f = open('D:/url/' + name + '.html', 'w',encoding="utf_16")
     f.close()
 
     q = queue.Queue()
-    for i in range(0, 30, 10):
+    for i in range(0, 10, 10):
         q.put('http://www.baidu.com/s?wd=%s&pn=%s' % (parse.quote(keyword), str(i)))
 
     threads = []
@@ -140,4 +163,5 @@ def main(keyword):
 
 
 if __name__ == '__main__':
-    readkeyword()
+    # readkeyword()
+    main("来月经了吃什么可以丰胸")
